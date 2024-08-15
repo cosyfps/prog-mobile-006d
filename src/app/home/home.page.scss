@@ -25,3 +25,31 @@
 #container a {
   text-decoration: none;
 }
+
+.transparent-navbar {
+  --background: transparent; /* Hacer transparente */
+  color: white; /* Ajusta el color del texto según el fondo */
+  box-shadow: none; /* Quita la sombra */
+  height: 65px; /* Altura del navbar */
+}
+
+.evenly-spaced-buttons {
+  display: flex;
+  justify-content: space-around; /* Distribuye uniformemente los botones */
+  width: 100%; /* Asegura que los botones ocupen todo el ancho del navbar */
+  height: 100%; /* Asegura que los botones ocupen toda la altura del navbar */
+}
+
+ion-button {
+  --color: white; /* Color del texto de los botones */
+  height: 100%; /* Asegura que los botones ocupen toda la altura del navbar */
+  align-items: center; /* Centra verticalmente el contenido dentro del botón */
+  padding: 0; /* Elimina el padding interno del botón */
+}
+
+ion-icon {
+  font-size: 32px; /* Tamaño del ícono */
+  height: 65px; /* Asegura que el ícono ocupe toda la altura del navbar */
+  width: 100%; /* Asegura que el ícono sea proporcionalmente ancho */
+}
+
