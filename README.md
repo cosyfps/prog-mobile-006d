@@ -1,4 +1,4 @@
-# Programación de Aplicaciones Moviles
+# Programación de Aplicaciones Moviles (beLoved)
 
 ¡Bienvenido al repositorio del proyecto semestral de la clase de Programación Mobile!
 
