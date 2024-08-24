@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  Email:String ='';
-  Password:String ='';
+  User:string ='';
+  Password:string ='';
 
   constructor(private router:Router) { }
 
@@ -17,14 +17,21 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/today']);
+    let navigationextras: NavigationExtras = {
+      state:{
+        user: this.User,
+        password: this.Password
+      }
+    }
+
+    this.router.navigate(['/today'], navigationextras);
   }
 
   forgotPassword() {
     this.router.navigate(['']);
   }
 
-  signIn() {
+  signUp() {
     this.router.navigate(['/register']);
   }
 
