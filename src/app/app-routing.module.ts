@@ -13,60 +13,66 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./page/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'today',
-    loadChildren: () => import('./page/today/today.module').then( m => m.TodayPageModule)
+    loadChildren: () => import('./pages/today/today.module').then( m => m.TodayPageModule)
   },
   {
     path: 'our-list',
-    loadChildren: () => import('./page/our-list/our-list.module').then( m => m.OurListPageModule)
+    loadChildren: () => import('./pages/our-list/our-list.module').then( m => m.OurListPageModule)
   },
   {
     path: 'log',
-    loadChildren: () => import('./page/log/log.module').then( m => m.LogPageModule)
+    loadChildren: () => import('./pages/log/log.module').then( m => m.LogPageModule)
   },
   {
     path: 'profile',
-    loadChildren: () => import('./page/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'settings',
-    loadChildren: () => import('./page/settings/settings.module').then( m => m.SettingsPageModule)
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
     path: 'your-info',
-    loadChildren: () => import('./page/your-info/your-info.module').then( m => m.YourInfoPageModule)
+    loadChildren: () => import('./pages/your-info/your-info.module').then( m => m.YourInfoPageModule)
   },
   {
     path: 'pairing',
-    loadChildren: () => import('./page/pairing/pairing.module').then( m => m.PairingPageModule)
+    loadChildren: () => import('./pages/pairing/pairing.module').then( m => m.PairingPageModule)
   },
   {
     path: 'premiun',
-    loadChildren: () => import('./page/premiun/premiun.module').then( m => m.PremiunPageModule)
+    loadChildren: () => import('./pages/premiun/premiun.module').then( m => m.PremiunPageModule)
   },
   {
     path: 'terms-of-service',
-    loadChildren: () => import('./page/terms-of-service/terms-of-service.module').then( m => m.TermsOfServicePageModule)
+    loadChildren: () => import('./pages/terms-of-service/terms-of-service.module').then( m => m.TermsOfServicePageModule)
   },
   {
     path: 'privacy-policy',
-    loadChildren: () => import('./page/privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
+    loadChildren: () => import('./pages/privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   },
   {
     path: 'delete-account',
-    loadChildren: () => import('./page/delete-account/delete-account.module').then( m => m.DeleteAccountPageModule)
+    loadChildren: () => import('./pages/delete-account/delete-account.module').then( m => m.DeleteAccountPageModule)
   },
   {
     path: 'logout',
-    loadChildren: () => import('./page/logout/logout.module').then( m => m.LogoutPageModule)
+    loadChildren: () => import('./pages/logout/logout.module').then( m => m.LogoutPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
+  },
+
+
 ];
 
 @NgModule({
