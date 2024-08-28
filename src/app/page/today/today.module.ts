@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TodayPageRoutingModule } from './today-routing.module';
 
 import { TodayPage } from './today.page';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { TodayPage } from './today.page';
     IonicModule,
     TodayPageRoutingModule
   ],
-  declarations: [TodayPage]
+  declarations: [TodayPage, FooterComponent]
 })
 export class TodayPageModule {}
