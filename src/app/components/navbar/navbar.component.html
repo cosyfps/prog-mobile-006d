@@ -2,19 +2,31 @@
   <ion-buttons class="evenly-spaced-buttons" slot="start">
 
     <ion-button (click)="goToToday()">
-      <ion-icon slot="icon-only" name="cafe-sharp"></ion-icon>
+      <div class="icon-text-container">
+        <ion-icon slot="icon-only" name="cafe-sharp"></ion-icon>
+        <span class="button-text">Today</span>
+      </div>
     </ion-button>
 
     <ion-button (click)="goToOurList()">
-      <ion-icon slot="icon-only" name="heart-sharp"></ion-icon>
+      <div class="icon-text-container">
+        <ion-icon slot="icon-only" name="heart-sharp"></ion-icon>
+        <span class="button-text">Our-List</span>
+      </div>
     </ion-button>
 
     <ion-button (click)="goToLog()">
-      <ion-icon slot="icon-only" name="library-sharp"></ion-icon>
+      <div class="icon-text-container">
+        <ion-icon slot="icon-only" name="library-sharp"></ion-icon>
+        <span class="button-text">Log</span>
+      </div>
     </ion-button>
 
     <ion-button (click)="goToProfile()">
-      <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
+      <div class="icon-text-container">
+        <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
+        <span class="button-text">Profile</span>
+      </div>
     </ion-button>
 
   </ion-buttons>
