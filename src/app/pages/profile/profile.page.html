@@ -1,15 +1,99 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <!-- Título de la página de perfil -->
+  <div class="profile-header">
+    <h1>Profile</h1>
+    <ion-button fill="clear" class="settings-btn">
+      <ion-icon name="settings-sharp"></ion-icon>
+    </ion-button>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Contenedor de fotos de perfil y nombres de usuario -->
+  <div class="profile-container">
+    <div class="profile-avatars">
+      <!-- Primera foto de perfil -->
+      <div class="profile-photo-container">
+        <ion-avatar class="profile-avatar">
+          <img src="assets/img/profile-pic.png" alt="Profile Picture 1" />
+        </ion-avatar>
+        <ion-button shape="round" fill="outline" class="change-photo-btn">
+          <ion-icon slot="icon-only" name="pencil-sharp"></ion-icon>
+        </ion-button>
+        <ion-label class="profile-name">You</ion-label>
+      </div>
+
+      <!-- Símbolo de separación -->
+      <div class="profile-separator">
+        <ion-label>&</ion-label>
+      </div>
+
+      <!-- Segunda foto de perfil -->
+      <div class="profile-photo-container">
+        <ion-avatar class="profile-avatar">
+          <img src="assets/img/profile-pic.png" alt="Profile Picture 2" />
+        </ion-avatar>
+        <ion-label class="profile-name">Your Partner</ion-label>
+      </div>
+    </div>
+    <!-- Texto centrado -->
+    <ion-label class="profile-center-text">Creciendo juntos por 84 días</ion-label>
+  </div>
+
+  <!-- Línea de separación -->
+  <div class="separator"></div>
+
+  <!-- Botones de actividades -->
+  <div class="activities-container">
+    <div class="activity-item">
+      <ion-button (click)="showInfo('florecer', '#3880ff')" shape="round" color="primary"
+        class="activity-btn"></ion-button>
+      <ion-label class="activity-text">Florecer</ion-label>
+      <ion-label class="activity-number">18</ion-label>
+    </div>
+    <div class="activity-item">
+      <ion-button (click)="showInfo('reflejo', '#0cd1e8')" shape="round" color="secondary"
+        class="activity-btn"></ion-button>
+      <ion-label class="activity-text">Reflejo</ion-label>
+      <ion-label class="activity-number">12</ion-label>
+    </div>
+    <div class="activity-item">
+      <ion-button (click)="showInfo('avance', '#7044ff')" shape="round" color="tertiary"
+        class="activity-btn"></ion-button>
+      <ion-label class="activity-text">Avance</ion-label>
+      <ion-label class="activity-number">15</ion-label>
+    </div>
+    <div class="activity-item">
+      <ion-button (click)="showInfo('raices', '#10dc60')" shape="round" color="success"
+        class="activity-btn"></ion-button>
+      <ion-label class="activity-text">Raíces</ion-label>
+      <ion-label class="activity-number">10</ion-label>
+    </div>
+  </div>
+
+  <div class="activities-text">
+    <ion-label>Actividades completadas</ion-label>
+  </div>
+
+  <!-- Tarjetas de información -->
+  <div *ngIf="selectedActivity" class="overlay" (click)="hideInfo()">
+    <div class="activity-info" (click)="$event.stopPropagation()">
+      <div class="activity-header" [ngStyle]="{'background-color': selectedColor}">
+        <ion-button fill="clear" class="close-btn" (click)="hideInfo()">
+          <ion-icon name="close-sharp"></ion-icon>
+        </ion-button>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="activity-circle" [ngStyle]="{'background-color': selectedColor}"></div>
+      <ion-label class="activity-title">{{ selectedTitle }}</ion-label>
+      <br>
+      <br>
+      <ion-label class="activity-description">
+        {{ selectedDescription }}
+      </ion-label>
+    </div>
+  </div>
+
 </ion-content>
 
 <ion-footer>
