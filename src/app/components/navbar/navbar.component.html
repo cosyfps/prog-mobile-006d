@@ -1,24 +1,21 @@
 <ion-toolbar class="transparent-navbar">
-
   <ion-buttons class="evenly-spaced-buttons" slot="start">
 
-    <ion-button [routerLink]="['/today']">
+    <ion-button (click)="goToToday()">
       <ion-icon slot="icon-only" name="cafe-sharp"></ion-icon>
     </ion-button>
 
-    <ion-button [routerLink]="['/our-list']">
+    <ion-button (click)="goToOurList()">
       <ion-icon slot="icon-only" name="heart-sharp"></ion-icon>
     </ion-button>
 
-    <ion-button [routerLink]="['/log']">
+    <ion-button (click)="goToLog()">
       <ion-icon slot="icon-only" name="library-sharp"></ion-icon>
     </ion-button>
 
-    <ion-button [routerLink]="['/profile']">
+    <ion-button (click)="goToProfile()">
       <ion-icon slot="icon-only" name="person-sharp"></ion-icon>
     </ion-button>
 
   </ion-buttons>
-
 </ion-toolbar>
-
