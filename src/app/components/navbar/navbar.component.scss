@@ -1,29 +1,45 @@
 .transparent-navbar {
-  --background: transparent; /* Make navbar background transparent */
-  color: white; /* Text color */
-  box-shadow: none; /* Remove shadow */
-  height: 65px; /* Navbar height */
+  --background: transparent;
+  /* Make navbar background transparent */
+  color: white;
+  /* Text color */
+  box-shadow: none;
+  /* Remove shadow */
+  height: 65px;
+  /* Navbar height */
   display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+  align-items: center;
+  /* Center items vertically */
+  justify-content: center;
+  /* Center items horizontally */
 }
 
 .evenly-spaced-buttons {
   display: flex;
-  justify-content: space-around; /* Distribute buttons evenly */
-  width: 100%; /* Full width of the navbar */
-  max-width: 600px; /* Optional: Set max width for navbar content */
+  justify-content: space-around;
+  /* Distribute buttons evenly */
+  width: 100%;
+  /* Full width of the navbar */
+  max-width: 600px;
+  /* Optional: Set max width for navbar content */
 }
 
 ion-button {
-  --background: #ff562200; /* Button background color */
-  --color: white; /* Button text color */
-  height: 100%; /* Full height of navbar */
-  align-items: center; /* Center content vertically */
-  padding: 0; /* Remove padding */
+  --background: #ff562200;
+  /* Button background color */
+  --color: white;
+  /* Button text color */
+  height: 100%;
+  /* Full height of navbar */
+  align-items: center;
+  /* Center content vertically */
+  padding: 0;
+  /* Remove padding */
   display: flex;
-  flex-direction: column; /* Stack icon and text vertically */
-  justify-content: center; /* Center content vertically */
+  flex-direction: column;
+  /* Stack icon and text vertically */
+  justify-content: center;
+  /* Center content vertically */
 }
 
 .icon-text-container {
@@ -34,15 +50,20 @@ ion-button {
 }
 
 ion-icon {
-  font-size: 32px; /* Icon size */
-  margin-bottom: 7px; /* Space between icon and text */
-  color: #646464;
+  font-size: 32px;
+  /* Icon size */
+  margin-bottom: 7px;
+  /* Space between icon and text */
+  color: #4d4c4c;
 }
 
 .button-text {
-  font-size: 12px; /* Text size */
-  color: #646464; /* Text color */
+  font-size: 12px;
+  /* Text size */
+  color: #4d4c4c;
+  /* Text color */
   font-weight: 500;
   margin-top: 7px;
-  text-align: center; /* Center text horizontally */
+  text-align: center;
+  /* Center text horizontally */
 }
