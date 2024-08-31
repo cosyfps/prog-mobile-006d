@@ -2,7 +2,7 @@
   <!-- Título de la página de perfil -->
   <div class="profile-header">
     <h1>Profile</h1>
-    <ion-button fill="clear" class="settings-btn">
+    <ion-button (click)="goToSettings()" fill="clear" class="settings-btn">
       <ion-icon name="settings-sharp"></ion-icon>
     </ion-button>
   </div>
@@ -44,26 +44,30 @@
   <!-- Botones de actividades -->
   <div class="activities-container">
     <div class="activity-item">
-      <ion-button (click)="showInfo('florecer', '#3880ff')" shape="round" color="primary"
-        class="activity-btn"></ion-button>
+      <ion-button (click)="showInfo('florecer', '#64B5F6')" shape="round" class="activity-btn-florecer">
+        <ion-icon name="water-sharp"></ion-icon>
+      </ion-button>
       <ion-label class="activity-text">Florecer</ion-label>
       <ion-label class="activity-number">18</ion-label>
     </div>
     <div class="activity-item">
-      <ion-button (click)="showInfo('reflejo', '#0cd1e8')" shape="round" color="secondary"
-        class="activity-btn"></ion-button>
+      <ion-button (click)="showInfo('reflejo', '#FFB74D')" shape="round" class="activity-btn-reflejo">
+        <ion-icon name="sunny-sharp"></ion-icon>
+      </ion-button>
       <ion-label class="activity-text">Reflejo</ion-label>
       <ion-label class="activity-number">12</ion-label>
     </div>
     <div class="activity-item">
-      <ion-button (click)="showInfo('avance', '#7044ff')" shape="round" color="tertiary"
-        class="activity-btn"></ion-button>
-      <ion-label class="activity-text">Avance</ion-label>
+      <ion-button (click)="showInfo('futuro', '#81C784')" shape="round" class="activity-btn-futuro">
+        <ion-icon name="leaf-sharp"></ion-icon>
+      </ion-button>
+      <ion-label class="activity-text">Futuro</ion-label>
       <ion-label class="activity-number">15</ion-label>
     </div>
     <div class="activity-item">
-      <ion-button (click)="showInfo('raices', '#10dc60')" shape="round" color="success"
-        class="activity-btn"></ion-button>
+      <ion-button (click)="showInfo('raices', '#A1887F')" shape="round" class="activity-btn-raices">
+        <ion-icon name="rose-sharp"></ion-icon>
+      </ion-button>
       <ion-label class="activity-text">Raíces</ion-label>
       <ion-label class="activity-number">10</ion-label>
     </div>

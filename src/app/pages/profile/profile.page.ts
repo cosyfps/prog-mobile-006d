@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ export class ProfilePage implements OnInit {
   selectedTitle: string = '';
   selectedDescription: string = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,7 +32,7 @@ export class ProfilePage implements OnInit {
         this.selectedTitle = 'Reflejo Interior';
         this.selectedDescription = 'Estas actividades se centran en conocerte a ti mismo. La autorreflexión te ayuda a entender qué te motiva y cómo puedes convertirte en la mejor versión de ti mismo.';
         break;
-      case 'avance':
+      case 'futuro':
         this.selectedTitle = 'Futuro en Flor';
         this.selectedDescription = 'Estas actividades se enfocan en mirar hacia adelante. Conviértete en una persona y en una pareja que siempre está creciendo y encontrando nuevas cosas que disfrutar.';
         break;
@@ -44,6 +45,10 @@ export class ProfilePage implements OnInit {
 
   hideInfo() {
     this.selectedActivity = null;
+  }
+
+  goToSettings(){
+    this.router.navigate(['/settings']);
   }
   
 }
