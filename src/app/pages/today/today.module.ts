@@ -7,15 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { TodayPageRoutingModule } from './today-routing.module';
 
 import { TodayPage } from './today.page';
-import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     TodayPageRoutingModule
   ],
-  declarations: [TodayPage, FooterComponent]
+  declarations: [TodayPage,]
 })
 export class TodayPageModule {}

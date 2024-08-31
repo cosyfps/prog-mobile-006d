@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { LogPageRoutingModule } from './log-routing.module';
 
 import { LogPage } from './log.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     LogPageRoutingModule
   ],
   declarations: [LogPage]
