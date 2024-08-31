@@ -1,33 +1,53 @@
-<ion-content [fullscreen]="true" class="flex relative items-center h-screen justify-center" style="
-  --background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(198,225,206,1) 73%, rgba(209,219,221,1) 92%) !important;">
+<ion-content [fullscreen]="true" class="flex relative items-center h-screen justify-center"
+  style="
+  --background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(209,219,221,1) 92%) !important;">
+
   <!-- Imagen o Logo -->
-   
   <div class="flex justify-center items-center">
-    <img src="assets/img/logo.png" alt="Logo" class="mb-4 w-[297px] h-[156px] mt-[181px]"> 
+    <img src="assets/img/logo.png" alt="Logo" class="mb-4 w-[297px] h-[156px] mt-[181px]">
   </div>
+
   <!-- Contenedor principal centrado -->
-  <div class="flex-row flex items-center mt-[43px] mx-[10%] justify-center px-6 py-8 bg-white rounded-[40px] shadow-md space-y-4">
-    
-    
+  <div
+    class="flex-row flex items-center mt-[43px] mx-[10%] justify-center px-6 py-8 bg-white rounded-[40px] shadow-md space-y-4">
+
     <!-- Formulario de Login -->
     <div class="flex flex-col items-center w-full">
       <ion-item lines="none" class="w-full mb-4">
-        <ion-input  label="Usuario" labelPlacement="floating" class="w-full userlb" placeholder="Ingrese Usuario" [(ngModel)]="User"></ion-input>
+        <ion-input label="Usuario" labelPlacement="floating" class="w-full userlb" placeholder="Ingrese Usuario"
+          [(ngModel)]="User" required minlength="4" #userInput="ngModel">
+        </ion-input>
       </ion-item>
 
+      <!-- Mensaje de error para el usuario -->
+      <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm">
+        <span *ngIf="userInput.errors?.['required']">El usuario es requerido.</span>
+        <span *ngIf="userInput.errors?.['minlength']">El usuario debe tener al menos 4 caracteres.</span>
+      </div>
+
       <ion-item lines="none" class="w-full mb-4">
-        <ion-input label="Contraseña" labelPlacement="floating" class="w-full pwlb" placeholder="Ingrese Contraseña" [(ngModel)]="Password"></ion-input>
+        <ion-input label="Contraseña" labelPlacement="floating" class="w-full pwlb" placeholder="Ingrese Contraseña"
+          [(ngModel)]="Password" required minlength="8" type="password" #passwordInput="ngModel">
+        </ion-input>
       </ion-item>
+      
+      <!-- Mensaje de error para la contraseña -->
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-red-500 text-sm">
+        <span *ngIf="passwordInput.errors?.['required']">La contraseña es requerida.</span>
+        <span *ngIf="passwordInput.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</span>
+      </div>
     </div>
 
   </div>
 
   <div class="flex flex-col items-center w-full botonwaf">
     <!-- Botón de Inicio de Sesión -->
-    <ion-button shape="round" expand="full" (click)="login()" class="mt-4 w-[65%] h-[58px]">Iniciar Sesión</ion-button>
-    
+    <ion-button shape="round" expand="full" (click)="login()" class="mt-4 w-[65%] h-[58px]"
+      [disabled]="userInput.invalid || passwordInput.invalid">Iniciar Sesión</ion-button>
+
     <!-- Links para Contraseña Olvidada y Crear Cuenta -->
     <ion-button fill="clear" (click)="forgotPassword()" class="text-sm mt-2">¿Olvidaste tu contraseña?</ion-button>
-    <ion-button shape="round" fill="clear" color="success" (click)="signUp()" class="text-sm mt-1">Crear Cuenta</ion-button>
+    <ion-button shape="round" fill="clear" color="success" (click)="signUp()" class="text-sm mt-1">Crear
+      Cuenta</ion-button>
   </div>
 </ion-content>
