@@ -1,16 +1,16 @@
-
-
-.centered-div {
+.loginForm {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
   background-color: white;
-  padding: 16px;
-  border-radius: 8px;
-  text-align: center;
-  padding: 16px;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-
-.loginForm {
-  background-color: white;
+.userlb{
+  border-bottom: 1px solid #bebebe;
+}
+.pwlb{
+  border-bottom: 1px solid #bebebe;
 }
