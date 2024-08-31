@@ -1,21 +1,23 @@
-<ion-content [fullscreen]="true">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
 
-    </ion-toolbar>
 
+<ion-content [fullscreen]="true" class="flex flex-col" style="
+  --background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(198,225,206,1) 73%, rgba(209,219,221,1) 92%) !important;">
+  <!-- Contenido de tu página -->
+
+  <div class="flex items-center flex-col loginForm">
     <ion-item>
-      <ion-input label="Usuario" labelPlacement="floating" placeholder="Ingrese Usuario" [(ngModel)]="User"></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <ion-input label="Contraseña" labelPlacement="floating" placeholder="Ingrese Contraseña" [(ngModel)]="Password"></ion-input>
+      <ion-input label="Usuario" labelPlacement="floating" class="w-[350px]" placeholder="Ingrese Usuario" [(ngModel)]="User"></ion-input>
     </ion-item>
 
-    <ion-button fill="clear" (click)="forgotPassword()">Se te olvido la Contraseña?</ion-button>
-    <br>
-    <ion-button shape="round" expand="full" color="" (click)="login()">Iniciar Sesion</ion-button>
-    <br>
-    <ion-button shape="round" fill="clear" color="success" (click)="signUp()">Crear Cuenta</ion-button>
+    <ion-item>
+      <ion-input label="Contraseña" class="w-[350px]" labelPlacement="floating" placeholder="Ingrese Contraseña" [(ngModel)]="Password"></ion-input>
+    </ion-item>
 
+  </div>
+  
+  <br>
+  <ion-button shape="round" expand="full" (click)="login()">Iniciar Sesion</ion-button>
+  <br>
+  <ion-button fill="clear" (click)="forgotPassword()">Se te olvido la Contraseña?</ion-button>
+  <ion-button shape="round" fill="clear" color="success" (click)="signUp()">Crear Cuenta</ion-button>
 </ion-content>
