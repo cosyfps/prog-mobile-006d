@@ -30,11 +30,10 @@
           [(ngModel)]="Password" required minlength="8" type="password" #passwordInput="ngModel">
         </ion-input>
       </ion-item>
-      
+
       <!-- Mensaje de error para la contraseña -->
       <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-red-500 text-sm">
         <span *ngIf="passwordInput.errors?.['required']">La contraseña es requerida.</span>
-        <span *ngIf="passwordInput.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres.</span>
       </div>
     </div>
 
