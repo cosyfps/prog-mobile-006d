@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class RegisterPage implements OnInit {
 
   User: string = '';
+  Email: string = '';
   Password: string = '';
   ConfirmPassword: string = '';
 

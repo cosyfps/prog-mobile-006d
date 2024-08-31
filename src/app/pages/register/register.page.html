@@ -19,11 +19,23 @@
         </ion-input>
       </ion-item>
 
-      <!-- Mensaje de error para el usuario -->
+      <!-- Mensaje de error para el email -->
       <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm">
         <span *ngIf="userInput.errors?.['required']">El usuario es requerido.</span>
         <span *ngIf="userInput.errors?.['minlength']">El usuario debe tener al menos 4 caracteres.</span>
       </div>
+
+      <div class="flex flex-col items-center w-full">
+        <ion-item lines="none" class="w-full mb-4">
+          <ion-input label="Email" labelPlacement="floating" class="w-full userlb" placeholder="Ingrese Email"
+            [(ngModel)]="Email" required #userInput="ngModel">
+          </ion-input>
+        </ion-item>
+  
+        <!-- Mensaje de error para el email -->
+        <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm">
+          <span *ngIf="userInput.errors?.['required']">El usuario es requerido.</span>
+        </div>
 
       <ion-item lines="none" class="w-full mb-4">
         <ion-input label="Contraseña" labelPlacement="floating" class="w-full pwlb" placeholder="Ingrese Contraseña"
