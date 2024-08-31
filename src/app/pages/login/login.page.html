@@ -22,7 +22,6 @@
       <!-- Mensaje de error para el usuario -->
       <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm">
         <span *ngIf="userInput.errors?.['required']">El usuario es requerido.</span>
-        <span *ngIf="userInput.errors?.['minlength']">El usuario debe tener al menos 4 caracteres.</span>
       </div>
 
       <ion-item lines="none" class="w-full mb-4">
