@@ -8,19 +8,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TodayPage implements OnInit {
 
-  usuarioLogin!: string;
-  passwordLogin!: string;
+  usuarioLogin: string = '';
+  passwordLogin: string = '';
 
-  constructor(private router: Router, private activatedroute: ActivatedRoute) {
-    this.activatedroute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation()?.extras.state){
-        this.usuarioLogin = this.router.getCurrentNavigation()?.extras?.state?.['user'];
-        this.passwordLogin = this.router.getCurrentNavigation()?.extras?.state?.['password'];
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        const state = this.router.getCurrentNavigation()?.extras.state as {
+          user: string;
+          password: string;
+        };
+        this.usuarioLogin = state.user;
+        this.passwordLogin = state.password;
       }
-    })
+    });
   }
 
   ngOnInit() {
+    console.log('Usuario:', this.usuarioLogin);
+    console.log('Password:', this.passwordLogin);
   }
-
 }

@@ -8,23 +8,22 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  User:string ='';
-  Password:string ='';
+  User: string = '';
+  Password: string = '';
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login() {
-    let navigationextras: NavigationExtras = {
-      state:{
+    let navigationExtras: NavigationExtras = {
+      state: {
         user: this.User,
         password: this.Password
       }
-    }
+    };
 
-    this.router.navigate(['/today'], navigationextras);
+    this.router.navigate(['/today'], navigationExtras);
   }
 
   forgotPassword() {
@@ -34,6 +33,4 @@ export class LoginPage implements OnInit {
   signUp() {
     this.router.navigate(['/register']);
   }
-
 }
-
