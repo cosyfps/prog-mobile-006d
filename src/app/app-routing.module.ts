@@ -92,9 +92,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/our-list-add/our-list-add.module').then( m => m.OurListAddPageModule)
   },
   {
+    path: 'our-list-task',
+    loadChildren: () => import('./pages/our-list-task/our-list-task.module').then( m => m.OurListTaskPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
+
 
 
 

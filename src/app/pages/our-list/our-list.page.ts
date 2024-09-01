@@ -20,5 +20,9 @@ export class OurListPage implements OnInit {
   goToAdd(){
     this.router.navigate(['/our-list-add']);
   }
+
+  goToTask() {
+    this.router.navigate(['/our-list-task']);
+  }
   
 }
