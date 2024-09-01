@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RootPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToLog() {
+    this.router.navigate(['/log']);
   }
 
 }

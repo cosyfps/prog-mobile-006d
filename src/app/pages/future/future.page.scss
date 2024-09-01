@@ -1,0 +1,76 @@
+/* Estilos para la carta */
+.futureAct-card {
+    position: relative;
+    border-left: 8px solid #81C784;
+    /* Color de borde de la carta */
+}
+
+/* Estilos para el ion-footer */
+ion-footer {
+    display: none;
+    /* Oculta el ion-footer ya que no lo necesitamos */
+}
+
+/* Estilos para el ion-content */
+ion-content {
+    position: relative;
+    /* Necesario para que el contenido sea el contenedor de referencia para el posicionamiento absoluto */
+    padding-bottom: 60px;
+    /* Asegura que el contenido no quede oculto debajo del toolbar */
+}
+
+/* Estilos para la barra de entrada dentro del contenido */
+.input-toolbar {
+    position: absolute;
+    /* Posiciona el toolbar en la parte inferior */
+    bottom: 0;
+    /* Alinea el toolbar en la parte inferior */
+    left: 0;
+    /* Alinea el toolbar a la izquierda */
+    width: 100%;
+    /* Asegura que el toolbar ocupe todo el ancho del contenido */
+    background: #64B5F6;
+    /* Color de fondo del toolbar */
+    color: #ffffff;
+    /* Color del texto en el toolbar */
+    padding: 8px;
+    /* Espaciado interno */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra opcional para mejorar la visibilidad */
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    /* Asegura que el toolbar esté por encima de otros elementos */
+}
+
+/* Estilos para el input */
+.chat-input {
+    flex: 1;
+    /* Ocupa el espacio disponible */
+    margin-right: 8px;
+    /* Espacio entre el input y el botón */
+    --padding-start: 12px;
+    --padding-end: 12px;
+    border: none;
+    /* Sin borde adicional para el input */
+    background: white;
+    /* Fondo blanco para el input */
+    color: #000;
+    /* Color del texto del input */
+    border-radius: 20px;
+    /* Bordes redondeados del input */
+}
+
+/* Estilos para el botón de enviar */
+ion-button {
+    --color: #ffffff;
+    /* Color del icono */
+    --background: transparent;
+    /* Fondo transparente para el botón */
+}
+
+/* Ajuste adicional para el icono del botón */
+ion-button ion-icon {
+    font-size: 24px;
+    /* Tamaño del icono */
+}

@@ -68,9 +68,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/logout/logout.module').then( m => m.LogoutPageModule)
   },
   {
-    path: '**',
-    loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
-  },  {
     path: 'bloom',
     loadChildren: () => import('./pages/bloom/bloom.module').then( m => m.BloomPageModule)
   },
@@ -85,6 +82,10 @@ const routes: Routes = [
   {
     path: 'root',
     loadChildren: () => import('./pages/root/root.module').then( m => m.RootPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
 
 

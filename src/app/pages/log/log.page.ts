@@ -13,8 +13,20 @@ export class LogPage implements OnInit {
   ngOnInit() {
   }
 
-  navigateTo(page: string) {
-    this.router.navigate([page]);
+  goToBloom(){
+    this.router.navigate(['/bloom']);
+  }
+
+  goToFuture(){
+    this.router.navigate(['/future']);
+  }
+
+  goToReflection(){
+    this.router.navigate(['/reflection']);
+  }
+
+  goToRoot(){
+    this.router.navigate(['/root']);
   }
 
 }

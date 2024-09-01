@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>bloom</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="header-bloom">
+    <ion-buttons (click)="goToLog()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button class="header-bloom">Log</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">bloom</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="bloomAct-card">
+    <ion-card-header>
+      <ion-card-subtitle>Bloom</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      What would your dream home look like?
+    </ion-card-content>
+  </ion-card>
+
+  <ion-toolbar class="input-toolbar">
+    <ion-input class="chat-input" placeholder="Add your response..."></ion-input>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="send-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-content>
