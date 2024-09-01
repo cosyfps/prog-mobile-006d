@@ -21,4 +21,7 @@ export class SettingsPage implements OnInit {
     this.router.navigate(['/your-info']);
   }
 
+  goToPairing(){
+    this.router.navigate(['/pairing']);
+  }
 }
