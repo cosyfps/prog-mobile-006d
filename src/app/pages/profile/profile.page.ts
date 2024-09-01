@@ -24,19 +24,19 @@ export class ProfilePage implements OnInit {
 
     // Update title and description based on the selected activity
     switch (activity) {
-      case 'florecer':
+      case 'bloom':
         this.selectedTitle = 'Bloom Together';
         this.selectedDescription = 'These activities help you nurture yourself and your relationship with gratitude and affirmation. Celebrate what you love about being yourself and being a couple!';
         break;
-      case 'reflejo':
+      case 'reflection':
         this.selectedTitle = 'Inner Reflection';
         this.selectedDescription = 'These activities focus on getting to know yourself. Self-reflection helps you understand what motivates you and how you can become the best version of yourself.';
         break;
-      case 'futuro':
+      case 'future':
         this.selectedTitle = 'Future in Bloom';
         this.selectedDescription = 'These activities focus on looking ahead. Become a person and a couple that is always growing and finding new things to enjoy.';
         break;
-      case 'raices':
+      case 'roots':
         this.selectedTitle = 'Strong Roots';
         this.selectedDescription = 'These activities help you build communication and trust to discuss the topics that matter most. Making life decisions and navigating difficult times is easier when you know you have a solid foundation.';
         break;

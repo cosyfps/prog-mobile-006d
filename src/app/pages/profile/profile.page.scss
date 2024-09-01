@@ -93,60 +93,50 @@
     text-align: center;
 }
 
-.activity-btn-florecer,
-.activity-btn-reflejo,
-.activity-btn-futuro,
-.activity-btn-raices {
-    width: 60px;
-    /* Ancho del botón */
-    height: 60px;
-    /* Alto del botón */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    --background: #ffffff;
-    --color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.activity-btn-florecer {
+.activity-btn-bloom {
     --background: #64B5F6;
 }
 
-.activity-btn-reflejo {
+.activity-btn-reflection {
     --background: #FFB74D;
 }
 
-.activity-btn-futuro {
+.activity-btn-future {
     --background: #81C784;
 }
 
-.activity-btn-raices {
+.activity-btn-roots {
     --background: #A1887F;
-}
-
-.activity-btn-florecer ion-icon,
-.activity-btn-reflejo ion-icon,
-.activity-btn-futuro ion-icon,
-.activity-btn-raices ion-icon {
-    font-size: 32px;
-    /* Tamaño del ícono */
-    line-height: 1;
-    width: 40px;
-    /* Ajusta el ancho del ícono */
-    height: 40px;
-    /* Ajusta el alto del ícono */
 }
 
 .activity-number {
     font-size: 18px;
+    font-weight: 450;
     display: block;
 }
 
-.activity-text {
+.activity-text-bloom {
     font-size: 14px;
     font-weight: 550;
-    color: #333;
+    color: #64B5F6;
+}
+
+.activity-text-reflection {
+    font-size: 14px;
+    font-weight: 550;
+    color: #FFB74D;
+}
+
+.activity-text-future {
+    font-size: 14px;
+    font-weight: 550;
+    color: #81C784;
+}
+
+.activity-text-roots {
+    font-size: 14px;
+    font-weight: 550;
+    color: #A1887F;
 }
 
 .activities-text {
