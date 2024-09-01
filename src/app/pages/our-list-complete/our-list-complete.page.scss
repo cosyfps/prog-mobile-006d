@@ -1,0 +1,61 @@
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.log-header h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 35px;
+    margin-left: 20px;
+}
+
+.btn-todo {
+    width: 100px;
+    height: 5px;
+}
+
+.btn-complete {
+    width: 100px;
+    height: 5px;
+}
+
+.add {
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+/* Estilos para centrar el texto h6 */
+.no-items-message {
+    text-align: center;
+    /* Centra el texto horizontalmente */
+    color: #b0bec5;
+    /* Color gris claro */
+    margin-top: 25px;
+    /* Espaciado superior opcional para alejarlo del contenido superior */
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Estilos para el ion-content para asegurarse de que el contenido esté centrado */
+ion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el contenido horizontalmente */
+    justify-content: center;
+    /* Centra el contenido verticalmente */
+    padding: 20px;
+    /* Espaciado interno para evitar que el contenido quede pegado a los bordes */
+}
+
+.errorComplete {
+    margin-top: 75px;
+    margin-left: 120px;
+    /* Centra la imagen horizontalmente con margen superior e inferior */
+    width: 150px !important;
+    /* Tamaño específico de la imagen, puede ajustar según sea necesario */
+}

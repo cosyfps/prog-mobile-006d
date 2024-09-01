@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+
+  <div class="log-header justify-center align-top">
+    <h1>Our List</h1>
+    <ion-icon name="add-outline" size="large" class="align-middle mr-2 add"></ion-icon>
+  </div>
+
+  <div class="button-group flex justify-center">
+    <ion-button (click)="goToTODO()" class="btn-todo" shape="round" fill="outline">To do</ion-button>
+    <ion-button class="btn-complete" shape="round" fill="solid">Completed</ion-button>
+  </div>
+
+  <img class="errorComplete" src="assets/img/error.png" alt="No activities">
+  <h6 class="no-items-message">
+    You haven't completed
+    <br>
+    anything on your list yet.
+  </h6>
+</ion-content>
+
+<ion-footer>
+  <app-navbar></app-navbar>
+</ion-footer>

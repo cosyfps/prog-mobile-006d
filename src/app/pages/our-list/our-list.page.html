@@ -1,38 +1,22 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <div class="log-header justify-center align-top">
-      <h1>Our List</h1>
-      <ion-icon name="add-outline"  size="large" class="align-middle mr-2"></ion-icon>
-    </div>
+  <div class="log-header justify-center align-top">
+    <h1>Our List</h1>
+    <ion-icon name="add-outline" size="large" class="align-middle mr-2 add"></ion-icon>
+  </div>
 
-    <div class="button-group flex justify-center" >
-      <ion-button class="btn-all" size="normal" shape="round" fill="outline">To do</ion-button>
-      <ion-button class="btn-bloom" size="normal" shape="round" fill="solid">Completed</ion-button>
-    </div>
+  <div class="button-group flex justify-center">
+    <ion-button class="btn-todo" shape="round" fill="solid">To do</ion-button>
+    <ion-button (click)="goToComplete()" class="btn-complete" shape="round" fill="outline">Completed</ion-button>
+  </div>
 
-    <ion-card class="bloomAct-card">
-      <ion-card-header>
-        <ion-card-subtitle>Bloom</ion-card-subtitle>
-      </ion-card-header>
-  
-      <ion-card-content>
-        What would your dream home look like?
-      </ion-card-content>
-    </ion-card>
-  
-    <ion-card class="futureAct-card">
-      <ion-card-header>
-        <ion-card-subtitle>Future</ion-card-subtitle>
-      </ion-card-header>
-  
-      <ion-card-content>
-        What's something you'd like to do when you retire?
-      </ion-card-content>
-    </ion-card>
-  
-
-  </ion-header>
+  <ion-card class="ourList-card">
+    <ion-card-content>
+      Start making our list
+      <ion-icon class="arrowOurList" name="caret-forward-sharp"></ion-icon>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
 <ion-footer>
   <app-navbar></app-navbar>
 </ion-footer>

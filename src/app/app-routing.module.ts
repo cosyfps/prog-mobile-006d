@@ -84,6 +84,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/root/root.module').then( m => m.RootPageModule)
   },
   {
+    path: 'our-list-complete',
+    loadChildren: () => import('./pages/our-list-complete/our-list-complete.module').then( m => m.OurListCompletePageModule)
+  },
+  {
+    path: 'our-list-add',
+    loadChildren: () => import('./pages/our-list-add/our-list-add.module').then( m => m.OurListAddPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
