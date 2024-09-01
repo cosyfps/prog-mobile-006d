@@ -41,4 +41,8 @@ export class TodayPage implements OnInit {
     this.router.navigate(['/future']);
   }
 
+  goToReflection(){
+    this.router.navigate(['/reflection']);
+  }
+
 }
