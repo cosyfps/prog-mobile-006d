@@ -1,13 +1,32 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>notifications</ion-title>
+    <ion-buttons (click)="goToToday()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Today</ion-button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">notifications</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="light">
+  <ion-list-header>
+    <ion-label>Notifications</ion-label>
+  </ion-list-header>
+
+  <ion-list lines="inset" [inset]="true">
+
+    <ion-item>
+      <ion-toggle justify="space-between">Partner responses</ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle justify="space-between">Reminsders</ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-toggle justify="space-between">Product updates</ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
 </ion-content>

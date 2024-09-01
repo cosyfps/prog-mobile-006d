@@ -1,20 +1,17 @@
 <ion-content [fullscreen]="true">
   <div class="today-header justify-center align-top">
     <h1>Today</h1>
-    <ion-button fill="clear" class="notification-btn">
+    <ion-button (click)="goToNotifications()" fill="clear" class="notification-btn">
       <ion-icon name="notifications-outline"></ion-icon>
     </ion-button>
   </div>
 
   <ion-item>
-    What we're gonna do today? {{usuarioLogin}}
+    What we're gonna do today? [{{usuarioLogin}}]
     <div class="underline"></div>
   </ion-item>
-  
 
-  <div class="flex justify-center items-center">
-    <img src="assets/img/logo.png" alt="Logo" class="mb-4 w-[297px] h-[156px] mt-[181px]">
-  </div>
+  <!-- TODO: Logo pixel art -->
 
   <div class="titleToday">
     <h6>Grow with your partner</h6>
@@ -35,7 +32,7 @@
       Retirement plans.
     </ion-card-content>
   </ion-card>
-  
+
   <div class="titleToday">
     <h6>Just for you</h6>
   </div>

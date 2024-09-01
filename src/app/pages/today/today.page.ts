@@ -29,6 +29,10 @@ export class TodayPage implements OnInit {
     console.log('Password:', this.passwordLogin);
   }
 
+  goToNotifications(){
+    this.router.navigate(['/notifications']);
+  }
+
   goToBloom(){
     this.router.navigate(['/bloom']);
   }
