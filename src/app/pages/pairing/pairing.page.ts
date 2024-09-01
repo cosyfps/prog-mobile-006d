@@ -16,4 +16,9 @@ export class PairingPage implements OnInit {
   goToSettings(){
     this.router.navigate(['/settings']);
   }
+
+  goToUnPair(){
+    this.router.navigate(['/un-pair']);
+  }
+  
 }

@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>un-pair</ion-title>
+    <ion-buttons (click)="goToSettings()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Settings</ion-button>
+    </ion-buttons>
+    <ion-title>Pairing</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">un-pair</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="light">
+  <div class="ion-padding">
+    <ion-button color="danger" expand="block">
+      un-pair
+    </ion-button>
+  </div>
 </ion-content>

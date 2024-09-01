@@ -24,4 +24,5 @@ export class SettingsPage implements OnInit {
   goToPairing(){
     this.router.navigate(['/pairing']);
   }
+
 }
