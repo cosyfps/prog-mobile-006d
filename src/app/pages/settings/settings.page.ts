@@ -16,4 +16,9 @@ export class SettingsPage implements OnInit {
   goToProfile() {
     this.router.navigate(['/profile']);
   }
+
+  goToYourInfo(){
+    this.router.navigate(['/your-info']);
+  }
+
 }
