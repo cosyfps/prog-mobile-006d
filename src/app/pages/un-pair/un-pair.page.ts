@@ -13,8 +13,8 @@ export class UnPairPage implements OnInit {
   ngOnInit() {
   }
 
-  goToSettings(){
-    this.router.navigate(['/settings']);
+  goToPairing(){
+    this.router.navigate(['/pairing']);
   }
 
 }

@@ -25,4 +25,11 @@ export class SettingsPage implements OnInit {
     this.router.navigate(['/pairing']);
   }
 
+  goToTermsOfService(){
+    this.router.navigate(['/terms-of-service']);
+  }
+
+  goToPrivacyPolicy(){
+    this.router.navigate(['/privacy-policy']);
+  }
 }
