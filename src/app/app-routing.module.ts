@@ -100,9 +100,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
   {
+    path: 'un-pair',
+    loadChildren: () => import('./pages/un-pair/un-pair.module').then( m => m.UnPairPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
+
   
 ];
 
