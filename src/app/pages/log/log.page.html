@@ -1,54 +1,57 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>log</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">log</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="log-header">
+    <h1>Log</h1>
+  </div>
 
-  <ion-card class="rootAct-card h-[120px]">
-    <ion-card-header>
-      
-      <ion-card-subtitle>Root</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      What small decision had a big impact on your life?
-    </ion-card-content>
-  </ion-card>
+  <div class="button-group">
+    <ion-button class="btn-all" size="small" shape="round" fill="outline">All</ion-button>
+    <ion-button class="btn-bloom" size="small" shape="round" fill="outline">Bloom</ion-button>
+    <ion-button class="btn-reflection" size="small" shape="round" fill="outline">Reflection</ion-button>
+    <ion-button class="btn-future" size="small" shape="round" fill="outline">Future</ion-button>
+    <ion-button class="btn-roots" size="small" shape="round" fill="outline">Roots</ion-button>
+  </div>
+
+  <div class="date">
+    <h6>02/09/2024</h6>
+  </div>
+
   <ion-card class="bloomAct-card">
     <ion-card-header>
-      
       <ion-card-subtitle>Bloom</ion-card-subtitle>
     </ion-card-header>
-  
+
     <ion-card-content>
       What would your dream home look like?
     </ion-card-content>
   </ion-card>
+
   <ion-card class="futureAct-card">
     <ion-card-header>
-      
       <ion-card-subtitle>Future</ion-card-subtitle>
     </ion-card-header>
-  
+
     <ion-card-content>
       What's something you'd like to do when you retire?
     </ion-card-content>
   </ion-card>
+
   <ion-card class="innerAct-card">
     <ion-card-header>
-      
       <ion-card-subtitle>Reflection</ion-card-subtitle>
     </ion-card-header>
-  
+
     <ion-card-content>
       How confident are you?
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="rootAct-card h-[120px]">
+    <ion-card-header>
+      <ion-card-subtitle>Root</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      What small decision had a big impact on your life?
     </ion-card-content>
   </ion-card>
 
