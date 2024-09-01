@@ -96,13 +96,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/our-list-task/our-list-task.module').then( m => m.OurListTaskPageModule)
   },
   {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
-
-
-
-
+  
 ];
 
 @NgModule({
