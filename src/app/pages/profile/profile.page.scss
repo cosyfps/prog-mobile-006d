@@ -168,7 +168,7 @@
     margin: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    text-align: justify;
     /* Cambiado a izquierda para alinear texto */
     position: relative;
     background-color: #fff;
@@ -189,6 +189,7 @@
     right: 0;
     padding: 16px;
     /* Ajusta el padding si es necesario */
+    text-align: center;
 }
 
 .activity-circle {
@@ -212,16 +213,24 @@
     font-size: 22px;
     font-weight: bold;
     margin-top: 30px;
+    margin-left: 25%;
+    margin-right: 0px;
     /* Ajusta según sea necesario */
-    margin-left: 85px;
     color: #333;
+    text-align: center;
 }
 
 .activity-description {
     font-size: 16px;
     color: #666;
-    text-align: left;
-    /* Alinear texto a la izquierda */
+    text-align: justify;
+    /* Justifica el texto */
+    text-justify: inter-word;
+    /* Mejora la justificación con espaciado entre palabras */
+    margin: 0;
+    /* Elimina márgenes adicionales si es necesario */
+    padding: 0;
+    /* Asegura que el padding no afecte la justificación */
 }
 
 .overlay {

@@ -25,22 +25,23 @@ export class ProfilePage implements OnInit {
     // Update title and description based on the selected activity
     switch (activity) {
       case 'florecer':
-        this.selectedTitle = 'Florece Juntos';
-        this.selectedDescription = 'Estas actividades te ayudan a nutrirte a ti mismo y a tu relación con gratitud y afirmación. ¡Celebra lo que amas de ser tú y de ser pareja!';
+        this.selectedTitle = 'Bloom Together';
+        this.selectedDescription = 'These activities help you nurture yourself and your relationship with gratitude and affirmation. Celebrate what you love about being yourself and being a couple!';
         break;
       case 'reflejo':
-        this.selectedTitle = 'Reflejo Interior';
-        this.selectedDescription = 'Estas actividades se centran en conocerte a ti mismo. La autorreflexión te ayuda a entender qué te motiva y cómo puedes convertirte en la mejor versión de ti mismo.';
+        this.selectedTitle = 'Inner Reflection';
+        this.selectedDescription = 'These activities focus on getting to know yourself. Self-reflection helps you understand what motivates you and how you can become the best version of yourself.';
         break;
       case 'futuro':
-        this.selectedTitle = 'Futuro en Flor';
-        this.selectedDescription = 'Estas actividades se enfocan en mirar hacia adelante. Conviértete en una persona y en una pareja que siempre está creciendo y encontrando nuevas cosas que disfrutar.';
+        this.selectedTitle = 'Future in Bloom';
+        this.selectedDescription = 'These activities focus on looking ahead. Become a person and a couple that is always growing and finding new things to enjoy.';
         break;
       case 'raices':
-        this.selectedTitle = 'Raíces Fuertes';
-        this.selectedDescription = 'Estas actividades te ayudan a construir comunicación y confianza para discutir los temas que más importan. Tomar decisiones de vida y navegar tiempos difíciles es más fácil cuando sabes que tienes una base sólida.';
+        this.selectedTitle = 'Strong Roots';
+        this.selectedDescription = 'These activities help you build communication and trust to discuss the topics that matter most. Making life decisions and navigating difficult times is easier when you know you have a solid foundation.';
         break;
     }
+    
   }
 
   hideInfo() {
