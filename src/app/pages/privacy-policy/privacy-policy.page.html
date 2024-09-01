@@ -1,13 +1,100 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>privacy-policy</ion-title>
+    <ion-buttons (click)="goToSettings()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Settings</ion-button>
+    </ion-buttons>
+    <ion-title>Privacy Policy</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">privacy-policy</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="light">
+  <div class="document-container">
+    <p class="effective-date"><strong>Effective Date:</strong> September 1, 2024</p>
+
+    <section class="document-section">
+      <h3 class="document-heading">1. Introduction</h3>
+      <p>
+        Our Privacy Policy is intended to help you understand what information we collect, why we collect it, how we use
+        it, and your rights and choices when it comes to your data.
+      </p>
+      <p>
+        The beLoved mobile application. Throughout this document, we will refer to our mobile application as our
+        services (“Services”).
+      </p>
+      <p>
+        We use your data to provide and improve our Services. By using our Services, you agree to the collection and use
+        of information in accordance with this policy.
+      </p>
+    </section>
+
+    <section class="document-section">
+      <h3 class="document-heading">2. Types of Data Collected</h3>
+      <h4 class="sub-heading">Personal Data</h4>
+      <p>
+        While using our Services, we may ask you to provide us with certain personally identifiable information that can
+        be used to contact or identify you (“Personal Data”). Personally identifiable information may include, but is
+        not limited to:
+      </p>
+      <ul class="document-list">
+        <li>Username</li>
+        <li>Email address</li>
+      </ul>
+      <p>
+        At any point, you may out of receiving marketing or promotional communications from us by following the
+        unsubscribe link.
+      </p>
+
+      <h4 class="sub-heading">Usage Data</h4>
+      <p>
+        We may also collect information that your mobile device sends whenever you access to our Services (“Usage
+        Data”). Usage Data may include information about various actions you perform while using our Services, and is
+        used to help us better understand how to improve our Services.
+      </p>
+
+    </section>
+
+    <section class="document-section">
+      <h3 class="document-heading">3. Use of Data</h3>
+      <p>
+        beLoved Technologies, LLC uses the collected data for various purposes:
+      </p>
+      <ul class="document-list">
+        <li>to provide and maintain our Services;</li>
+        <li>to provide customer support;</li>
+        <li>to analyze usage data so that we can improve our Services;</li>
+        <li>to detect, prevent and address technical issues;</li>
+        <li>for any other purpose with your consent.</li>
+      </ul>
+    </section>
+
+    <!-- Continue with the remaining sections -->
+    <section class="document-section">
+      <h3 class="document-heading">4. Retention of Data</h3>
+      <p>
+        We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy
+        Policy.
+      </p>
+      <p>
+        We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter
+        period, except when this data is used to strengthen the security or to improve the functionality of our
+        Services, or we are legally obligated to retain this data for longer time periods.
+      </p>
+    </section>
+
+    <section class="document-section">
+      <h3 class="document-heading">5. Transfer of Data</h3>
+      <p>
+        Your information, including Personal Data, may be transferred to a Database.
+      </p>
+    </section>
+
+    <section class="document-section">
+      <h3 class="document-heading">6. Contact Us</h3>
+      <p>
+        If you have any questions or concerns regarding this Privacy Policy, please contact us by email at:
+        support&#64;belovedapp.co.
+      </p>
+    </section>
+  </div>
 </ion-content>
