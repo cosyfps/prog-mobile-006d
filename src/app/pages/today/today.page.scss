@@ -1,24 +1,285 @@
-.rootAct-card {
-    position: relative;
-    border-left: 8px solid #A1887F; 
-    border-radius: 8px;
-    background-color: rgb(253, 253, 253);
-  }
+.today-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.today-header h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 35px;
+  margin-left: 20px;
+}
+
+.notification-btn {
+  --background: transparent;
+  --color: #000000;
+  margin-top: -50px;
+}
+
+.notification-btn ion-icon {
+  font-size: 36px;
+}
+
+ion-item {
+  --border-color: transparent;
+  /* Quita el borde */
+  position: relative;
+  /* Necesario para posicionar el div dentro del item */
+  padding-bottom: 5px;
+  /* Ajusta el espacio en la parte inferior del item */
+}
+
+.underline {
+  position: absolute;
+  /* Posiciona el div de manera absoluta */
+  bottom: 0;
+  /* Coloca el div en la parte inferior del item */
+  left: 0;
+  /* Alinea el div al borde izquierdo */
+  width: 350px;
+  /* Ajusta el largo de la línea */
+  height: 1px;
+  /* Ajusta el grosor de la línea */
+  background-color: #cccccc;
+  /* Color de la línea */
+}
+
+
+
+img {
+  display: block;
+  max-width: 200px;
+  /* Ajusta el tamaño de la imagen para que se ajuste al ancho del contenedor */
+  height: auto;
+  /* Mantiene la proporción de la imagen */
+  margin: 20px auto;
+  /* Centra la imagen horizontalmente y agrega un margen superior e inferior */
+}
+
+.titleToday {
+  text-align: left;
+  /* Centra el texto horizontalmente */
+  margin: 15px 0;
+  /* Ajusta el margen superior e inferior */
+  margin-left: 15px;
+}
+
+.titleToday h6 {
+  font-size: 18px;
+  /* Tamaño reducido del texto */
+  color: #616161;
+  /* Color gris claro para el texto */
+}
 
 .bloomAct-card {
-position: relative;
-border-left: 8px solid #64B5F6; 
+  height: 75px;
+  /* Altura fija */
+  position: relative;
+  margin: 10px;
+  padding: 5px;
+  /* Ajusta el padding para que no se desborde */
+  box-sizing: border-box;
+  /* Incluye padding y border en el tamaño total */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centra el contenido verticalmente */
+  overflow: hidden;
+  /* Esconde el contenido que se desborda */
+  border-left: 8px solid #64B5F6;
+  /* Color del borde */
+}
 
+.bloomAct-card ion-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  margin: 0;
+  /* Elimina el margen interno para maximizar el espacio */
+}
+
+.bloomAct-card .titleCard {
+  font-size: 14px;
+  /* Ajusta el tamaño del texto para que quepa en la tarjeta */
+  font-weight: bold;
+  margin-bottom: -14px;
+  /* Espacio debajo del título */
+}
+
+.bloomAct-card ion-card-content {
+  font-size: 12px;
+  /* Ajusta el tamaño del texto para que quepa en la tarjeta */
+  color: #616161;
+  /* Color del texto */
 }
 
 .futureAct-card {
-position: relative;
-border-left: 8px solid #81C784;
-border-radius: 8px; 
+  height: 75px;
+  /* Altura fija */
+  position: relative;
+  margin: 10px;
+  padding: 5px;
+  /* Ajusta el padding para que no se desborde */
+  box-sizing: border-box;
+  /* Incluye padding y border en el tamaño total */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centra el contenido verticalmente */
+  overflow: hidden;
+  /* Esconde el contenido que se desborda */
+  border-left: 8px solid #81C784;
+  /* Color del borde */
 }
 
-.innerAct-card {
-position: relative;
-border-left: 8px solid #FFB74D; 
-border-radius: 8px; 
+.futureAct-card ion-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  margin: 0;
+  /* Elimina el margen interno para maximizar el espacio */
+}
+
+.futureAct-card .titleCard {
+  font-size: 14px;
+  /* Ajusta el tamaño del texto para que quepa en la tarjeta */
+  font-weight: bold;
+  margin-bottom: -14px;
+  /* Espacio debajo del título */
+}
+
+.futureAct-card ion-card-content {
+  font-size: 12px;
+  /* Ajusta el tamaño del texto para que quepa en la tarjeta */
+  color: #616161;
+  /* Color del texto */
+}
+
+.reflectionAct-card {
+  height: 75px;
+  /* Altura fija */
+  position: relative;
+  margin: 10px;
+  padding: 5px;
+  /* Ajusta el padding para que no se desborde */
+  box-sizing: border-box;
+  /* Incluye padding y border en el tamaño total */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centra el contenido verticalmente */
+  overflow: hidden;
+  /* Esconde el contenido que se desborda */
+  border-left: 8px solid #FFB74D;
+  /* Color del borde */
+}
+
+.reflectionAct-card ion-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  margin: 0;
+  /* Elimina el margen interno para maximizar el espacio */
+}
+
+.reflectionAct-card .titleCard {
+  font-size: 14px;
+  /* Ajusta el tamaño del texto para que quepa en la tarjeta */
+  font-weight: bold;
+  margin-bottom: -14px;
+  /* Espacio debajo del título */
+}
+
+.reflectionAct-card ion-card-content {
+  font-size: 12px;
+  /* Ajusta el tamaño del texto para que quepa en la tarjeta */
+  color: #616161;
+  /* Color del texto */
+}
+
+.wordsOfWisdom-card {
+  height: 75px;
+  /* Altura fija */
+  position: relative;
+  margin: 10px;
+  padding: 5px;
+  /* Ajusta el padding para que no se desborde */
+  box-sizing: border-box;
+  /* Incluye padding y border en el tamaño total */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centra el contenido verticalmente */
+  overflow: hidden;
+  /* Esconde el contenido que se desborda */
+  background-color: #009688;
+  /* Color de fondo */
+  color: #ffffff;
+  /* Color del texto */
+}
+
+.wordsOfWisdom-card ion-card-header {
+  padding: 30px;
+  /* Elimina el padding para maximizar el espacio */
+  margin-bottom: 2px;
+  /* Espacio debajo del subtítulo */
+  text-align: left;
+  /* Centra el texto en el encabezado */
+}
+
+.wordsOfWisdom-card ion-card-subtitle {
+  font-size: 12px;
+  /* Tamaño del texto del subtítulo */
+  font-style: italic;
+  /* Opcional: estilo en cursiva para la cita */
+  margin: 0;
+  /* Elimina el margen interno para maximizar el espacio */
+  color: #f5f5f5;
+}
+
+.wordsOfWisdom-card ion-card-content {
+  font-size: 14px;
+  /* Tamaño más grande del texto del contenido */
+  position: fixed;
+  /* Posiciona el contenido en una esquina */
+  bottom: -10px;
+  /* Ajusta el espacio desde la parte inferior */
+  right: 5px;
+  /* Ajusta el espacio desde la parte derecha */
+  margin: 0;
+  /* Elimina el margen interno para maximizar el espacio */
+  text-align: right;
+  /* Alinea el texto a la derecha */
+}
+
+.card-icon {
+  position: absolute;
+  /* Posiciona el ícono de manera absoluta */
+  top: 5px;
+  /* Ajusta el espacio desde la parte superior */
+  right: 10px;
+  /* Ajusta el espacio desde la parte derecha */
+  font-size: 24px;
+  /* Tamaño del ícono */
+  color: #ffffff;
+  /* Color del ícono */
+}
+
+.activities-today {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.activities-today ion-label {
+  font-size: 14px;
+  color: #757575;
 }

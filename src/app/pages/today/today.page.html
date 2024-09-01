@@ -1,22 +1,76 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>today</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">today</ion-title>
-    </ion-toolbar>
+  <div class="today-header justify-center align-top">
+    <h1>Today</h1>
+    <ion-button fill="clear" class="notification-btn">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </ion-button>
+  </div>
 
-    <ion-item>
-      What we're gonna do today, {{usuarioLogin}} ?  {{passwordLogin}}
-    </ion-item>
-  </ion-header>
+  <ion-item>
+    What we're gonna do today? {{usuarioLogin}}
+    <div class="underline"></div>
+  </ion-item>
+  
 
+  <div class="flex justify-center items-center">
+    <img src="assets/img/logo.png" alt="Logo" class="mb-4 w-[297px] h-[156px] mt-[181px]">
+  </div>
 
+  <div class="titleToday">
+    <h6>Grow with your partner</h6>
+  </div>
 
+  <ion-card class="bloomAct-card" (click)="goToBloom()">
+    <ion-card-content>
+      <i class="titleCard">Bloom</i>
+      <br>
+      Visualize your perfect house.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="futureAct-card" (click)="goToFuture()">
+    <ion-card-content>
+      <i class="titleCard">Future</i>
+      <br>
+      Retirement plans.
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="titleToday">
+    <h6>Just for you</h6>
+  </div>
+
+  <ion-card class="reflectionAct-card" (click)="goToFuture()">
+    <ion-card-content>
+      <i class="titleCard">Reflection</i>
+      <br>
+      Confidence in yourself.
+    </ion-card-content>
+  </ion-card>
+
+  <div class="titleToday">
+    <h6>Words of wisdom</h6>
+  </div>
+
+  <ion-card class="wordsOfWisdom-card">
+    <ion-icon name="people-sharp" class="card-icon"></ion-icon>
+    <ion-card-header>
+      <ion-card-subtitle>"Happiness is anyone and anything that's loved by you."</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Charles M. Schulz
+    </ion-card-content>
+  </ion-card>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="activities-today">
+    <ion-label>Activities for today</ion-label>
+  </div>
 
 </ion-content>
 

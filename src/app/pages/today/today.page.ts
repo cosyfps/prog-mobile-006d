@@ -28,4 +28,13 @@ export class TodayPage implements OnInit {
     console.log('Usuario:', this.usuarioLogin);
     console.log('Password:', this.passwordLogin);
   }
+
+  goToBloom(){
+    this.router.navigate(['/bloom']);
+  }
+
+  goToFuture(){
+    this.router.navigate(['/future']);
+  }
+
 }
