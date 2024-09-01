@@ -16,4 +16,9 @@ export class OurListPage implements OnInit {
   goToComplete(){
     this.router.navigate(['/our-list-complete']);
   }
+
+  goToAdd(){
+    this.router.navigate(['/our-list-add']);
+  }
+  
 }

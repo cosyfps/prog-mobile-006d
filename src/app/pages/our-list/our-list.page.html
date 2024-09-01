@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <div class="log-header justify-center align-top">
     <h1>Our List</h1>
-    <ion-icon name="add-outline" size="large" class="align-middle mr-2 add"></ion-icon>
+    <ion-icon (click)="goToAdd()" name="add-outline" size="large" class="align-middle mr-2 add"></ion-icon>
   </div>
 
   <div class="button-group flex justify-center">
@@ -10,7 +10,7 @@
   </div>
 
   <ion-card class="ourList-card">
-    <ion-card-content>
+    <ion-card-content (click)="goToAdd()">
       Start making our list
       <ion-icon class="arrowOurList" name="caret-forward-sharp"></ion-icon>
     </ion-card-content>
