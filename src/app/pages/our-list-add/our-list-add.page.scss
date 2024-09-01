@@ -1,0 +1,59 @@
+.addTask-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.addTask-header h1 {
+    font-size: 36px;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-bottom: -25px;
+}
+
+ion-content {
+    position: relative;
+    padding-bottom: 60px;
+}
+
+ion-item {
+    --inner-border-width: 0px;
+    --highlight-height: 0px;
+    --background: none;
+}
+
+.details-input ion-input {
+    height: 80px;
+    --min-height: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ion-input {
+    border-radius: 8px;
+    background: #f2f2f2;
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
+ion-label {
+    font-weight: 500;
+    margin-left: 5px;
+    margin-bottom: -20px;
+    /* Separación del label hacia arriba */
+}
+
+.submit-button {
+    border-radius: 20px;
+    margin-top: 25px;
+    max-width: 350px;
+    margin-left: 20px;
+    color: #ffffff;
+    background-color: #00796B;
+    /* Cambia a tu color deseado */
+    --background: #00796B;
+}
+
+ion-button ion-icon {
+    font-size: 24px;
+}
