@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-account',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteAccountPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goToSettings(){
+    this.router.navigate(['/settings']);
+  }
+
 }
+

@@ -1,13 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>delete-account</ion-title>
+    <ion-buttons (click)="goToSettings()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Settings</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">delete-account</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="deleteAccount-header">
+    <h1>Delete Account</h1>
+  </div>
+  <div class="ion-padding">
+    <p>Are you sure you want to delete your account?</p>
+    <p>Deleting your account is <i>irreversible</i>, and all of your data will be <i>permanently deleted.</i></p>
+    <p>Deleting your account will not automatically cancel your subscription.</p>
+    <ion-button class="deleteButton" color="danger" expand="block">
+      Delete account
+    </ion-button>
+  </div>
 </ion-content>

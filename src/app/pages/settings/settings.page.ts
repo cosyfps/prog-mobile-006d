@@ -32,4 +32,9 @@ export class SettingsPage implements OnInit {
   goToPrivacyPolicy(){
     this.router.navigate(['/privacy-policy']);
   }
+
+  goToDeleteAccount(){
+    this.router.navigate(['/delete-account']);
+  }
+
 }
