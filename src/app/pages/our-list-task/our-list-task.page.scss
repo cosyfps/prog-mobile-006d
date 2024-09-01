@@ -1,0 +1,17 @@
+.task-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.task-header h1 {
+    font-size: 34px;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-bottom: -25px;
+}
+
+ion-content {
+    position: relative;
+    padding-bottom: 60px;
+}

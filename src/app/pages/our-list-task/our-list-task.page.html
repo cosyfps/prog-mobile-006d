@@ -1,13 +1,14 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>our-list-task</ion-title>
+    <ion-buttons (click)="goToOurList()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Our-list</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">our-list-task</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="task-header">
+    <h1>Start making our list</h1>
+  </div>
 </ion-content>
