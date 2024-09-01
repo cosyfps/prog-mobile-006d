@@ -70,7 +70,23 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
+  },  {
+    path: 'bloom',
+    loadChildren: () => import('./pages/bloom/bloom.module').then( m => m.BloomPageModule)
   },
+  {
+    path: 'future',
+    loadChildren: () => import('./pages/future/future.module').then( m => m.FuturePageModule)
+  },
+  {
+    path: 'reflection',
+    loadChildren: () => import('./pages/reflection/reflection.module').then( m => m.ReflectionPageModule)
+  },
+  {
+    path: 'root',
+    loadChildren: () => import('./pages/root/root.module').then( m => m.RootPageModule)
+  },
+
 
 
 ];
