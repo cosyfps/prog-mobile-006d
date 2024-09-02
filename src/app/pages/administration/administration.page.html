@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons (click)="goToSettings()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Settings</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="admin-header justify-center align-top">
+    <h1>Admin Panel</h1>
+  </div>
+
+  <ion-card class="admin-card">
+    <ion-card-content>
+      <ion-icon class="iconoAdminTask" name="library-outline"></ion-icon>
+      Manage Task
+      <ion-icon class="arrowAdminList" name="caret-forward-sharp"></ion-icon>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="admin-card">
+    <ion-card-content>
+      <ion-icon class="iconoAdminTask" name="people"></ion-icon>
+      Manage Users
+      <ion-icon class="arrowAdminList" name="caret-forward-sharp"></ion-icon>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
