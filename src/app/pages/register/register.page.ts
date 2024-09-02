@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,9 +19,16 @@ export class RegisterPage implements OnInit {
 
   register() {
     if (this.Password === this.ConfirmPassword) {
-      // Lógica para registrar al usuario, como enviar los datos al backend
-      console.log('Usuario registrado:', this.User);
-      this.router.navigate(['/login']);
+      // Crear el objeto NavigationExtras con los datos del usuario
+      let navigationExtras: NavigationExtras = {
+        state: {
+          rUser: this.User,
+          rPassword: this.Password
+        }
+      };
+  
+      // Navegar a la página de inicio de sesión pasando los datos
+      this.router.navigate(['/login'], navigationExtras);
     } else {
       console.log('Las contraseñas no coinciden.');
     }

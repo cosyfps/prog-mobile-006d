@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +10,36 @@ export class LoginPage implements OnInit {
 
   User: string = '';
   Password: string = '';
+  registeredUser: string = '';
+  registeredPassword: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { 
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        const state = this.router.getCurrentNavigation()?.extras.state as {
+          rUser: string;
+          rPassword: string;
+        };
+        this.registeredUser = state.rUser;
+        this.registeredPassword = state.rPassword;
+      }
+    });
+  }
 
   ngOnInit() {}
 
   login() {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        user: this.User,
-        password: this.Password
-      }
-    };
-
-    this.router.navigate(['/today'], navigationExtras);
+    if (this.User === this.registeredUser && this.Password === this.registeredPassword) {
+      let navigationExtras: NavigationExtras = {
+        state: {
+          user: this.User,
+          password: this.Password
+        }
+      };
+      this.router.navigate(['/today'], navigationExtras);
+    } else {
+      console.log('Nombre de usuario o contraseña incorrectos.');
+    }
   }
 
   forgotPassword() {
