@@ -40,6 +40,10 @@ export class SettingsPage implements OnInit {
     this.router.navigate(['/delete-account']);
   }
   
+  goToPremium() {
+    this.router.navigate(['/premiun']);
+  }
+
   public alertButtons = [
     {
       text: 'Cancel',

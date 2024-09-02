@@ -1,13 +1,13 @@
 <ion-content [fullscreen]="true" class="ion-padding" style="--background: linear-gradient(180deg, #4B5CC4, #6A89D9);">
   <div class="center-container">
-    <!-- Botón de cerrar en la parte superior derecha -->
-    <ion-button fill="clear" class="close-button">
-      <ion-icon name="close-outline"></ion-icon>
-    </ion-button>
+  <!-- Botón de cerrar en la parte superior derecha -->
+  <ion-button fill="clear" class="close-button" slot="end" (click)="close()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
 
     <!-- Imagen del logo al centro -->
     <div class="flex justify-center items-center">
-      <img src="assets/img/logo.png" class="max-h-28" alt="Logo" >
+      <img src="assets/img/logoblanco.png" class="max-h-28" alt="Logo" >
     </div>
 
     <!-- Título de la oferta -->
