@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons (click)="goToAdminUsers()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>User List</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="viewUser-header">
+    <h1>User Details</h1>
+  </div>
+
+  <form #userForm="ngForm">
+    <ion-item class="input-item">
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input type="text" name="name" readonly fill="outline" placeholder="Name"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="text" name="email" readonly fill="outline" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Role</ion-label>
+      <ion-input type="text" name="role" readonly fill="outline" placeholder="Role"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-item">
+      <ion-label position="stacked">Date Joined</ion-label>
+      <ion-input type="text" name="dateJoined" readonly fill="outline" placeholder="Date Joined"></ion-input>
+    </ion-item>
+
+    <ion-button shape="round" expand="full" class="edit-button">Summit</ion-button>
+  </form>
+</ion-content>

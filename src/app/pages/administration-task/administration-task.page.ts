@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-administration-task',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrationTaskPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goToAdministration(){
+    this.router.navigate(['/administration']);
+  }
+
+  goToAddTask(){
+    this.router.navigate(['/administration-task-add']);
   }
 
 }

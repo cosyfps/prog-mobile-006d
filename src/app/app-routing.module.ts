@@ -128,9 +128,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/administration-task-edit/administration-task-edit.module').then( m => m.AdministrationTaskEditPageModule)
   },
   {
+    path: 'administration-users-add',
+    loadChildren: () => import('./pages/administration-users-add/administration-users-add.module').then( m => m.AdministrationUsersAddPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
+
 
   
 ];

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-administration-users',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministrationUsersPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  goToAdministration(){
+    this.router.navigate(['/administration']);
+  }
+
+  goToAddUser(){
+    this.router.navigate(['/administration-users-add']);
+  }
 }

@@ -17,4 +17,11 @@ export class AdministrationPage implements OnInit {
     this.router.navigate(['/settings']);
   }
 
+  goToTask(){
+    this.router.navigate(['/administration-task']);
+  }
+
+  goToUsers(){
+    this.router.navigate(['/administration-users']);
+  }
 }
