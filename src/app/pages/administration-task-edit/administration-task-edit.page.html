@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>administration-task-edit</ion-title>
+    <ion-buttons (click)="goToAdminTask()" slot="start">
+      <ion-icon name="chevron-back-sharp"></ion-icon>
+      <ion-button>Administration</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">administration-task-edit</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="task-header">
+    <h1>Confident in yourself</h1>
+    <ion-icon class="edit-icon" name="create-outline"></ion-icon>
+  </div>
+
+  <ion-grid>
+    <ion-row class="task-row">
+      <ion-col size="6">
+        <ion-label class="task-label">Added By</ion-label>
+      </ion-col>
+      <ion-col size="6" class="text-end">
+        <ion-label class="task-label">Date Added</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="task-row">
+      <ion-col size="6" class="text-end-by">
+        <ion-text>Kelvin A. Moreno</ion-text>
+      </ion-col>
+      <ion-col size="6" class="text-end-date">
+        <ion-text>1 September 2024</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="detailsRow">
+      <ion-col size="12">
+        <ion-label class="task-label">Details</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-text>
+          The question "How confident are you?" probes the level of certainty or assurance an individual feels about a
+          specific situation, decision, or belief. It reflects not only the person's self-assessment of their knowledge,
+          skills, and experience but also their psychological state, including factors like self-efficacy and fear of
+          failure.
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button class="delete-button" shape="round" expand="full" color="danger">
+    Cancel
+  </ion-button>
+  <ion-button class="submit-button" shape="round" expand="full">
+    <ion-icon class="check" name="checkmark-circle-outline"></ion-icon> Summit
+  </ion-button>
 </ion-content>

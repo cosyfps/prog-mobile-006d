@@ -21,4 +21,8 @@ export class AdministrationTaskPage implements OnInit {
     this.router.navigate(['/administration-task-add']);
   }
 
+  goToEditTask(){
+    this.router.navigate(['/administration-task-edit']);
+  }
+
 }

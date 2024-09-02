@@ -20,4 +20,8 @@ export class AdministrationUsersPage implements OnInit {
   goToAddUser(){
     this.router.navigate(['/administration-users-add']);
   }
+
+  goToEditUser(){
+    this.router.navigate(['/administration-users-edit']);
+  }
 }

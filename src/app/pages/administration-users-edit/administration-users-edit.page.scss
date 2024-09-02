@@ -1,0 +1,70 @@
+.user-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    margin-bottom: 30px;
+}
+
+.user-header h1 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-bottom: -25px;
+    color: #616161;
+}
+
+.edit-icon {
+    font-size: 28px;
+    position: absolute;
+    margin-top: 25px;
+    right: 10px;
+    color: #3880ff;
+    text-shadow: 0 0 1px #000;
+}
+
+.user-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #757575;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-end-user,
+.text-end-role {
+    text-align: left;
+}
+
+.text-end-email,
+.text-end-date {
+    text-align: right;
+}
+
+.submit-button {
+    border-radius: 20px;
+    margin-top: 25px;
+    max-width: 350px;
+    margin-left: 20px;
+    color: #ffffff;
+    background-color: #00796B;
+    --background: #00796B;
+}
+
+.delete-button {
+    border-radius: 20px;
+    margin-top: 25px;
+    max-width: 350px;
+    margin-left: 20px;
+    color: #ffffff;
+    background-color: #B71C1C;
+    --background: #B71C1C;
+}
+
+.check {
+    font-size: 28px;
+    margin-right: 5px;
+}
