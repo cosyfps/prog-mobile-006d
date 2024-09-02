@@ -9,6 +9,9 @@ import { AlertController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
+  // * Cambiar para presentacion
+  isAdmin: boolean = true;
+
   constructor(private router: Router, private alertController: AlertController) { }
 
   ngOnInit() {}
@@ -48,7 +51,6 @@ export class SettingsPage implements OnInit {
     {
       text: 'Logout',
       role: 'confirm',
-      cssClass: 'logOut-button',
       handler: () => {
         console.log('Alert confirmed');
         this.router.navigate(['/login']);
@@ -56,11 +58,33 @@ export class SettingsPage implements OnInit {
     },
   ];
 
-  async presentAlert() {
+  async logOutAlert() {
     const alert = await this.alertController.create({
       header: 'Logout!',
       message: 'Are you sure you want to log out?',
-      buttons: this.alertButtons
+      buttons: this.alertButtons,
+      cssClass: 'logOut-button',
+    });
+
+    await alert.present();
+  }
+
+  public singleButtonAlert = [
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
+
+  // Presenta la alerta con un solo botón
+  async restorePuerchaseAlert() {
+    const alert = await this.alertController.create({
+      header: 'Error!',
+      message: 'No purchase found to restore.',
+      buttons: this.singleButtonAlert
     });
 
     await alert.present();
@@ -69,4 +93,7 @@ export class SettingsPage implements OnInit {
   setResult(ev: CustomEvent) {
     console.log(`Dismissed with role: ${ev.detail.role}`);
   }
+
+  
+
 }
