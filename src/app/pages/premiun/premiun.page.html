@@ -1,13 +1,64 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>premiun</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding" style="--background: linear-gradient(180deg, #4B5CC4, #6A89D9);">
+  <div class="center-container">
+    <!-- Botón de cerrar en la parte superior derecha -->
+    <ion-button fill="clear" class="close-button">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">premiun</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <!-- Imagen del logo al centro -->
+    <div class="flex justify-center items-center">
+      <img src="assets/img/logo.png" class="max-h-28" alt="Logo" >
+    </div>
+
+    <!-- Título de la oferta -->
+    <div class="text-center">
+      <h2 class="title">Try beLoved Premium</h2>
+    </div>
+
+    <!-- Lista de beneficios -->
+    <ion-list class="benefits-list">
+      <ion-item lines="none">
+        <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+        <ion-label>Unlock the full beLoved experience</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+        <ion-label>Exclusive questions, quizzes, and activities</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+        <ion-label>FREE premium for your partner</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- Opción de suscripción anual -->
+    <div class="subscription-option highlighted">
+      <div class="option-header">
+        <span>Annual + 7-day free trial</span>
+        <ion-badge color="success">SAVE 58%</ion-badge>
+      </div>
+      <div class="option-body">
+        <h3>$43.900/year for 2 users</h3>
+        <p>$1.829/mo per user, cancel anytime</p>
+      </div>
+    </div>
+
+    <!-- Opción de suscripción mensual -->
+    <div class="subscription-option">
+      <div class="option-header">
+        <span>Monthly</span>
+      </div>
+      <div class="option-body">
+        <h3>$8.700/mo for 2 users</h3>
+        <p>Cancel anytime</p>
+      </div>
+    </div>
+
+    <!-- Botón de suscripción -->
+    <div class="button-container">
+      <ion-button expand="full" shape="round" color="light" class="subscribe-button">
+        Try free & subscribe
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
