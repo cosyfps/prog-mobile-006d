@@ -39,6 +39,10 @@ export class SettingsPage implements OnInit {
   goToDeleteAccount() {
     this.router.navigate(['/delete-account']);
   }
+
+  goToAdministrationPanel(){
+    this.router.navigate(['/administration']);
+  }
   
   goToPremium() {
     this.router.navigate(['/premiun']);

@@ -104,6 +104,30 @@ const routes: Routes = [
     loadChildren: () => import('./pages/un-pair/un-pair.module').then( m => m.UnPairPageModule)
   },
   {
+    path: 'administration',
+    loadChildren: () => import('./pages/administration/administration.module').then( m => m.AdministrationPageModule)
+  },
+  {
+    path: 'administration-task',
+    loadChildren: () => import('./pages/administration-task/administration-task.module').then( m => m.AdministrationTaskPageModule)
+  },
+  {
+    path: 'administration-task-add',
+    loadChildren: () => import('./pages/administration-task-add/administration-task-add.module').then( m => m.AdministrationTaskAddPageModule)
+  },
+  {
+    path: 'administration-users',
+    loadChildren: () => import('./pages/administration-users/administration-users.module').then( m => m.AdministrationUsersPageModule)
+  },
+  {
+    path: 'administration-users-edit',
+    loadChildren: () => import('./pages/administration-users-edit/administration-users-edit.module').then( m => m.AdministrationUsersEditPageModule)
+  },
+  {
+    path: 'administration-task-edit',
+    loadChildren: () => import('./pages/administration-task-edit/administration-task-edit.module').then( m => m.AdministrationTaskEditPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },

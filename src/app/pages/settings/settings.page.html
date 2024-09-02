@@ -24,7 +24,7 @@
       <ion-label>Pairing</ion-label>
     </ion-item>
 
-    <ion-item>
+    <ion-item (click)="goToAdministrationPanel()">
       <ion-label>Administration panel</ion-label>
       <ion-icon *ngIf="isAdmin" class="lockAdmin" name="lock-open-outline"></ion-icon>
       <ion-icon *ngIf="!isAdmin" class="lockAdmin" name="lock-closed-outline"></ion-icon>
