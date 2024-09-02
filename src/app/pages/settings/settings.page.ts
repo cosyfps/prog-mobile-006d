@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
@@ -8,33 +9,64 @@ import { Router } from '@angular/router';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private alertController: AlertController) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   goToProfile() {
     this.router.navigate(['/profile']);
   }
 
-  goToYourInfo(){
+  goToYourInfo() {
     this.router.navigate(['/your-info']);
   }
 
-  goToPairing(){
+  goToPairing() {
     this.router.navigate(['/pairing']);
   }
 
-  goToTermsOfService(){
+  goToTermsOfService() {
     this.router.navigate(['/terms-of-service']);
   }
 
-  goToPrivacyPolicy(){
+  goToPrivacyPolicy() {
     this.router.navigate(['/privacy-policy']);
   }
 
-  goToDeleteAccount(){
+  goToDeleteAccount() {
     this.router.navigate(['/delete-account']);
   }
+  
+  public alertButtons = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'Logout',
+      role: 'confirm',
+      cssClass: 'logOut-button',
+      handler: () => {
+        console.log('Alert confirmed');
+        this.router.navigate(['/login']);
+      },
+    },
+  ];
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Logout!',
+      message: 'Are you sure you want to log out?',
+      buttons: this.alertButtons
+    });
+
+    await alert.present();
+  }
+
+  setResult(ev: CustomEvent) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);
+  }
 }

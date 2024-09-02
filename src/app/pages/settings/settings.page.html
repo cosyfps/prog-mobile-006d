@@ -61,7 +61,7 @@
   <ion-list lines="inset" [inset]="true">
 
     <ion-item [button]="true">
-      <ion-label>Try premiun</ion-label>
+      <ion-label>Try premium</ion-label>
     </ion-item>
 
     <ion-item>
@@ -81,7 +81,7 @@
     </ion-item>
 
     <ion-item (click)="goToPrivacyPolicy()" [button]="true">
-      <ion-label>Privacy poolicy</ion-label>
+      <ion-label>Privacy policy</ion-label>
     </ion-item>
 
   </ion-list>
@@ -96,7 +96,7 @@
       <ion-label>Delete account</ion-label>
     </ion-item>
 
-    <ion-item>
+    <ion-item (click)="presentAlert()">
       <ion-label>Log out</ion-label>
     </ion-item>
 
