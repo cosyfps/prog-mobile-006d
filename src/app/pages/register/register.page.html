@@ -28,12 +28,13 @@
       <!-- Email Field -->
       <ion-item lines="full" class="w-full mb-4">
         <ion-input label="Email" labelPlacement="floating" class="w-full" placeholder="Enter Email" [(ngModel)]="Email"
-          required #emailInput="ngModel">
-        </ion-input>
+          name="Email" #emailInput="ngModel" required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></ion-input>
       </ion-item>
+
       <div *ngIf="emailInput.invalid && emailInput.touched" class="text-red-500 text-sm">
         <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
-        <span *ngIf="emailInput.errors?.['email']">Email is not valid.</span>
+        <span *ngIf="emailInput.errors?.['pattern']">Email format is invalid.</span>
       </div>
 
       <!-- Password Field -->
