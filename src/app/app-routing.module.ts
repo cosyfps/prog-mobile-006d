@@ -132,6 +132,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/administration-users-add/administration-users-add.module').then( m => m.AdministrationUsersAddPageModule)
   },
   {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/not-found404/not-found404.module').then( m => m.NotFound404PageModule)
   },
