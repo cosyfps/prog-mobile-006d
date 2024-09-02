@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular'; // Importa NavController
 
 @Component({
   selector: 'app-premiun',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PremiunPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { } // Inyecta NavController en el constructor
 
   ngOnInit() {
   }
 
+  close() {
+    this.navCtrl.back(); // Navega hacia atrás
+  }
 }

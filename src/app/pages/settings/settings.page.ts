@@ -44,6 +44,10 @@ export class SettingsPage implements OnInit {
     this.router.navigate(['/administration']);
   }
   
+  goToPremium() {
+    this.router.navigate(['/premiun']);
+  }
+
   public alertButtons = [
     {
       text: 'Cancel',
