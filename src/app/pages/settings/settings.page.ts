@@ -10,7 +10,7 @@ import { AlertController } from '@ionic/angular';
 export class SettingsPage implements OnInit {
 
   // * Cambiar para presentacion
-  isAdmin: boolean = true;
+  isAdmin: boolean = false;
 
   constructor(private router: Router, private alertController: AlertController) { }
 
