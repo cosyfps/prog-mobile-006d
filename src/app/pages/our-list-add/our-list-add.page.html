@@ -12,15 +12,17 @@
     <h1>Create your own</h1>
   </div>
 
-  <form #taskForm="ngForm">
+  <form #taskForm="ngForm" (ngSubmit)="submitForm()">
     <ion-item class="input-item">
       <ion-label position="stacked">Title</ion-label>
-      <ion-input type="text" name="title" required fill="outline" placeholder="Enter text"></ion-input>
+      <ion-input type="text" name="title" [(ngModel)]="title" required fill="outline"
+        placeholder="Enter text"></ion-input>
     </ion-item>
 
     <ion-item class="input-item details-input">
       <ion-label position="stacked">Details</ion-label>
-      <ion-input type="text" name="description" fill="outline" placeholder="Enter text"></ion-input>
+      <ion-input type="text" name="description" [(ngModel)]="details" fill="outline"
+        placeholder="Enter text"></ion-input>
     </ion-item>
 
     <ion-button shape="round" expand="full" type="submit" class="submit-button">Add</ion-button>
