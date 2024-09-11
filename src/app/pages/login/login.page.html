@@ -13,7 +13,7 @@
 
     <!-- Login Form -->
     <div class="flex flex-col items-center w-full">
-      <ion-item lines="none" class="w-full mb-4">
+      <ion-item lines="none" class="w-full mb-4 transparent-input">
         <ion-input label="Username" labelPlacement="floating" class="w-full userlb" placeholder="Enter Username"
           [(ngModel)]="User" required minlength="4" #userInput="ngModel">
         </ion-input>
@@ -24,7 +24,7 @@
         <span *ngIf="userInput.errors?.['required']">Username is required.</span>
       </div>
 
-      <ion-item lines="none" class="w-full mb-4">
+      <ion-item lines="none" class="w-full mb-4 transparent-input">
         <ion-input label="Password" labelPlacement="floating" class="w-full pwlb" placeholder="Enter Password"
           [(ngModel)]="Password" required minlength="8" type="password" #passwordInput="ngModel">
         </ion-input>
@@ -40,12 +40,10 @@
 
   <div class="flex flex-col items-center w-full botonwaf">
     <!-- Login Button -->
-    <ion-button shape="round" expand="full" (click)="login()" class="mt-4 w-[65%] h-[58px]"
-      [disabled]="userInput.invalid || passwordInput.invalid">Log In</ion-button>
+    <ion-button shape="round" expand="full" (click)="login()" class="mt-4 w-[65%] h-[58px]">Log In</ion-button>
 
     <!-- Links for Forgot Password and Sign Up -->
     <ion-button fill="clear" (click)="forgotPassword()" class="text-sm mt-2">Forgot your password?</ion-button>
-    <ion-button shape="round" fill="clear" (click)="signUp()" class="text-sm mt-1">Create
-      Account</ion-button>
+    <ion-button shape="round" fill="clear" (click)="signUp()" class="text-sm mt-1">Create Account</ion-button>
   </div>
 </ion-content>

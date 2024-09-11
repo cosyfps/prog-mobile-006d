@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,39 +9,66 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+  // Variables de usuario y contraseña
   User: string = '';
   Password: string = '';
-  registeredUser: string = '';
-  registeredPassword: string = '';
+  
+  // Variables registradas que se recuperan al navegar desde el registro
+  usuarioRegistro: string = '';
+  contraRegistro: string = '';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { 
-    this.activatedRoute.queryParams.subscribe(params => {
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private activedrouter: ActivatedRoute
+  ) { 
+    this.activedrouter.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
         const state = this.router.getCurrentNavigation()?.extras.state as {
           rUser: string;
           rPassword: string;
         };
-        this.registeredUser = state.rUser;
-        this.registeredPassword = state.rPassword;
+        this.usuarioRegistro = state.rUser;
+        this.contraRegistro = state.rPassword;
       }
     });
   }
 
   ngOnInit() {}
 
-  login() {
-    if (this.User === this.registeredUser && this.Password === this.registeredPassword) {
+  async login() {
+    // Validation for empty fields
+    if (this.User === '' || this.Password === '') {
+      const alert = await this.alertController.create({
+        header: 'Empty Fields',
+        message: 'Please fill in all fields.',
+        buttons: ['OK'],
+        cssClass: 'alert-style'
+      });
+      await alert.present();
+    }
+    // Registered credentials validation
+    else if (this.User === this.usuarioRegistro && this.Password === this.contraRegistro) {
       let navigationExtras: NavigationExtras = {
         state: {
-          user: this.User,
-          password: this.Password
+          usu: this.usuarioRegistro,
+          con: this.contraRegistro
         }
       };
       this.router.navigate(['/today'], navigationExtras);
-    } else {
-      console.log('Nombre de usuario o contraseña incorrectos.');
+    } 
+    // Incorrect credentials error
+    else {
+      const alert = await this.alertController.create({
+        header: 'Login Failed',
+        message: 'Incorrect username or password.',
+        buttons: ['OK'],
+        cssClass: 'alert-style'
+      });
+      await alert.present();
     }
   }
+  
 
   forgotPassword() {
     this.router.navigate(['/forgot-password']);
@@ -49,5 +77,4 @@ export class LoginPage implements OnInit {
   signUp() {
     this.router.navigate(['/register']);
   }
-
 }
