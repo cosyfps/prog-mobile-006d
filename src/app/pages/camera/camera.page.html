@@ -1,0 +1,10 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>camera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="takePicture()"> tomar foto</ion-button>
+  <img *ngIf="image" [src]="image" alt="No hay Img" style="width: 250px; height: 250px;" >
+</ion-content>
