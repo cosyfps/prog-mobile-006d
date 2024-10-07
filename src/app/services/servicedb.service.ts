@@ -14,13 +14,14 @@ export class servicebd {
     CREATE TABLE IF NOT EXISTS users(
       user_id INTEGER PRIMARY KEY AUTOINCREMENT,
       username VARCHAR(50),
-      email VARCHAR(100),
+      email VARCHAR(100) UNIQUE,
       password_hash VARCHAR(255),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       role VARCHAR(20),
       status VARCHAR(20) DEFAULT 'active'
     );
   `;
+
 
   // Tabla 'couples': Registra las relaciones entre usuarios formando una pareja.
   private tableCouples: string = `
