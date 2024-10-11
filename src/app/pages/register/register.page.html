@@ -1,78 +1,79 @@
 <ion-content [fullscreen]="true" class="flex relative items-center h-screen justify-center"
-  style="
-  --background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(198,225,206,1) 73%, rgba(209,219,221,1) 92%) !important;">
+  style="--background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(198,225,206,1) 73%, rgba(209,219,221,1) 92%) !important;">
 
   <!-- Image or Logo -->
   <div class="flex justify-center items-center">
-    <img src="assets/img/logo.png" alt="Logo" class="mb-4 w-[297px] h-[156px] mt-[181px]">
+    <img src="assets/img/logo.png" alt="Logo"
+      class="mb-4 w-[298px] h-auto mt-[100px] max-w-full max-h-[400px] object-contain">
   </div>
 
   <!-- Main Container Centered -->
   <div
-    class="flex-row flex items-center mt-[43px] mx-[10%] justify-center px-6 py-8 bg-white rounded-[40px] shadow-md space-y-4">
+    class="flex flex-col items-center mt-[43px] mx-[10%] justify-center px-6 py-8 bg-white rounded-[40px] shadow-md space-y-4">
 
     <!-- Registration Form -->
     <div class="flex flex-col items-center w-full">
 
       <!-- Username Field -->
-      <ion-item lines="full" class="w-full mb-4">
-        <ion-input label="Username" labelPlacement="floating" class="w-full userlb" placeholder="Enter Username"
-          [(ngModel)]="User" required minlength="4" #userInput="ngModel">
-        </ion-input>
-      </ion-item>
-      <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm">
-        <span *ngIf="userInput.errors?.['required']">Username is required.</span>
-        <span *ngIf="userInput.errors?.['minlength']">Username must be at least 4 characters long.</span>
+      <div class="w-full mb-4">
+        <ion-input type="text" label="Username" labelPlacement="floating" [(ngModel)]="User"
+          placeholder="Enter Username" class="w-full bg-white placeholder-purple-500 text-gray-600" required
+          minlength="4" #userInput="ngModel"></ion-input>
+        <!-- Error message for username -->
+        <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm mt-1">
+          <span *ngIf="userInput.errors?.['required']">Username is required.</span>
+          <span *ngIf="userInput.errors?.['minlength']">Username must be at least 4 characters long.</span>
+        </div>
       </div>
 
       <!-- Email Field -->
-      <ion-item lines="full" class="w-full mb-4">
-        <ion-input label="Email" labelPlacement="floating" class="w-full" placeholder="Enter Email" [(ngModel)]="Email"
-          name="Email" #emailInput="ngModel" required
-          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></ion-input>
-      </ion-item>
-
-      <div *ngIf="emailInput.invalid && emailInput.touched" class="text-red-500 text-sm">
-        <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
-        <span *ngIf="emailInput.errors?.['pattern']">Email format is invalid.</span>
+      <div class="w-full mb-4">
+        <ion-input type="email" label="Email" labelPlacement="floating" [(ngModel)]="Email" placeholder="Enter Email"
+          class="w-full bg-white placeholder-purple-500 text-gray-600" required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #emailInput="ngModel"></ion-input>
+        <!-- Error message for email -->
+        <div *ngIf="emailInput.invalid && emailInput.touched" class="text-red-500 text-sm mt-1">
+          <span *ngIf="emailInput.errors?.['required']">Email is required.</span>
+          <span *ngIf="emailInput.errors?.['pattern']">Email format is invalid.</span>
+        </div>
       </div>
 
       <!-- Password Field -->
-      <ion-item lines="full" class="w-full mb-4">
-        <ion-input label="Password" labelPlacement="floating" class="w-full pwlb" placeholder="Enter Password"
-          [(ngModel)]="Password" required minlength="8" type="password" #passwordInput="ngModel">
-        </ion-input>
-      </ion-item>
-      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-red-500 text-sm">
-        <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
-        <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters long.</span>
+      <div class="w-full mb-4">
+        <ion-input type="password" label="Password" labelPlacement="floating" [(ngModel)]="Password"
+          placeholder="Enter Password" class="w-full bg-white placeholder-purple-200 text-gray-600" required
+          minlength="8" #passwordInput="ngModel"></ion-input>
+        <!-- Error message for password -->
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-red-500 text-sm mt-1">
+          <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
+          <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters long.</span>
+        </div>
       </div>
 
       <!-- Confirm Password Field -->
-      <ion-item lines="full" class="w-full mb-4">
-        <ion-input label="Confirm Password" labelPlacement="floating" class="w-full pwlb" placeholder="Confirm Password"
-          [(ngModel)]="ConfirmPassword" required minlength="8" type="password" #confirmPasswordInput="ngModel">
-        </ion-input>
-      </ion-item>
-      <div *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched" class="text-red-500 text-sm">
-        <span *ngIf="confirmPasswordInput.errors?.['required']">Password confirmation is required.</span>
-        <span *ngIf="confirmPasswordInput.errors?.['minlength']">Password confirmation must be at least 8 characters
-          long.</span>
-      </div>
-      <div *ngIf="Password !== ConfirmPassword && confirmPasswordInput.touched" class="text-red-500 text-sm">
-        Passwords do not match.
+      <div class="w-full mb-4">
+        <ion-input type="password" label="Confirm Password" labelPlacement="floating" [(ngModel)]="ConfirmPassword"
+          placeholder="Confirm Password" class="w-full bg-white placeholder-purple-200 text-gray-600" required
+          minlength="8" #confirmPasswordInput="ngModel"></ion-input>
+        <!-- Error message for confirm password -->
+        <div *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched" class="text-red-500 text-sm mt-1">
+          <span *ngIf="confirmPasswordInput.errors?.['required']">Password confirmation is required.</span>
+          <span *ngIf="confirmPasswordInput.errors?.['minlength']">Password confirmation must be at least 8 characters
+            long.</span>
+        </div>
+        <div *ngIf="Password !== ConfirmPassword && confirmPasswordInput.touched" class="text-red-500 text-sm">
+          Passwords do not match.
+        </div>
       </div>
 
     </div>
   </div>
 
-  <div class="flex flex-col items-center w-full botonwaf">
+  <div class="flex flex-col items-center w-full mt-4">
     <!-- Register Button -->
-    <ion-button shape="round" expand="full" (click)="register()" class="mt-4 w-[65%] h-[58px]">
-      Register
-    </ion-button>
+    <button class="bg-blue-600 text-white rounded-full w-[65%] h-[58px] text-lg" (click)="register()">Register</button>
 
     <!-- Link to Login -->
-    <ion-button fill="clear" (click)="goToLogin()" class="text-sm mt-1">Already have an account? Log in</ion-button>
+    <button class="text-blue-600 text-sm mt-1" (click)="goToLogin()">Already have an account? Log in</button>
   </div>
 </ion-content>

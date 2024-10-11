@@ -1,49 +1,47 @@
 <ion-content [fullscreen]="true" class="flex relative items-center h-screen justify-center"
-  style="
-  --background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(209,219,221,1) 92%) !important;">
+  style="--background: linear-gradient(0deg, rgba(121,183,172,1) 0%, rgba(250,243,234,1) 33%, rgba(198,225,206,1) 73%, rgba(209,219,221,1) 92%) !important;">
 
   <!-- Image or Logo -->
   <div class="flex justify-center items-center">
-    <img src="assets/img/logo.png" alt="Logo" class="mb-4 w-[297px] h-[156px] mt-[181px]">
+    <img src="assets/img/logo.png" alt="Logo"
+      class="mb-4 w-[298px] h-auto mt-[100px] max-w-full max-h-[400px] object-contain">
   </div>
 
   <!-- Main Container Centered -->
   <div
-    class="flex-row flex items-center mt-[43px] mx-[10%] justify-center px-6 py-8 bg-white rounded-[40px] shadow-md space-y-4">
+    class="flex flex-col items-center mt-[43px] mx-[10%] justify-center px-6 py-8 bg-white rounded-[40px] shadow-md space-y-4">
 
     <!-- Login Form -->
     <div class="flex flex-col items-center w-full">
-      <ion-item lines="none" class="w-full mb-4 transparent-input">
-        <ion-input label="Username" labelPlacement="floating" class="w-full userlb" placeholder="Enter Username"
-          [(ngModel)]="User" required minlength="4" #userInput="ngModel">
-        </ion-input>
-      </ion-item>
-
-      <!-- Error message for username -->
-      <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm">
-        <span *ngIf="userInput.errors?.['required']">Username is required.</span>
+      <div class="w-full mb-4">
+        <ion-input type="text" label="Username" labelPlacement="floating" [(ngModel)]="User"
+          placeholder="Enter Username" class="w-full bg-white placeholder-purple-500 text-gray-600" required
+          minlength="4" #userInput="ngModel"></ion-input>
+        <!-- Error message for username -->
+        <div *ngIf="userInput.invalid && userInput.touched" class="text-red-500 text-sm mt-1">
+          <span *ngIf="userInput.errors?.['required']">Username is required.</span>
+        </div>
       </div>
 
-      <ion-item lines="none" class="w-full mb-4 transparent-input">
-        <ion-input label="Password" labelPlacement="floating" class="w-full pwlb" placeholder="Enter Password"
-          [(ngModel)]="Password" required minlength="8" type="password" #passwordInput="ngModel">
-        </ion-input>
-      </ion-item>
-
-      <!-- Error message for password -->
-      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-red-500 text-sm">
-        <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
+      <div class="w-full mb-4">
+        <ion-input type="password" label="Password" labelPlacement="floating" [(ngModel)]="Password"
+          placeholder="Enter Password" class="w-full bg-white placeholder-purple-200 text-gray-600" required
+          minlength="8" #passwordInput="ngModel"></ion-input>
+        <!-- Error message for password -->
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-red-500 text-sm mt-1">
+          <span *ngIf="passwordInput.errors?.['required']">Password is required.</span>
+        </div>
       </div>
     </div>
 
   </div>
 
-  <div class="flex flex-col items-center w-full botonwaf">
+  <div class="flex flex-col items-center w-full mt-4">
     <!-- Login Button -->
-    <ion-button shape="round" expand="full" (click)="login()" class="mt-4 w-[65%] h-[58px]">Log In</ion-button>
+    <button class="bg-blue-600 text-white rounded-full w-[65%] h-[58px] text-lg" (click)="login()">Log In</button>
 
     <!-- Links for Forgot Password and Sign Up -->
-    <ion-button fill="clear" (click)="forgotPassword()" class="text-sm mt-2">Forgot your password?</ion-button>
-    <ion-button shape="round" fill="clear" (click)="signUp()" class="text-sm mt-1">Create Account</ion-button>
+    <button class="text-blue-600 text-sm mt-2" (click)="forgotPassword()">Forgot your password?</button>
+    <button class="text-blue-600 text-sm mt-1" (click)="signUp()">Create Account</button>
   </div>
 </ion-content>

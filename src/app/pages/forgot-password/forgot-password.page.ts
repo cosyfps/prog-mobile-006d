@@ -9,7 +9,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class ForgotPasswordPage implements OnInit {
 
-  inputValue: string = '';
+  Email: string = '';
 
   constructor(
     private router: Router,
@@ -24,7 +24,7 @@ export class ForgotPasswordPage implements OnInit {
     // Basic email format validation
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!emailPattern.test(this.inputValue)) {
+    if (!emailPattern.test(this.Email)) {
       const alert = await this.alertController.create({
         header: 'Validation Error',
         message: 'Please enter a valid email address.',
@@ -45,8 +45,7 @@ export class ForgotPasswordPage implements OnInit {
     await toast.present();
 
     // Optionally, navigate to another page or clear the input
-    // this.router.navigate(['/next-page']);
-    this.inputValue = ''; // Clear the input field if needed
+    this.router.navigate(['/login']);
   }
 
   goToLogin() {
