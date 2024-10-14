@@ -6,135 +6,40 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class servicebd {
+export class ServicebdService {
   public database!: SQLiteObject;
 
-  // Tabla 'users': Almacena información sobre los usuarios, como su ID, nombre, email, contraseña, rol y estado.
+  // Tabla 'users': Almacena información sobre los usuarios.
   private tableUsers: string = `
     CREATE TABLE IF NOT EXISTS users(
-      user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username VARCHAR(50),
-      email VARCHAR(100) UNIQUE,
-      password_hash VARCHAR(255),
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      role VARCHAR(20),
-      status VARCHAR(20) DEFAULT 'active'
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username VARCHAR(50) NOT NULL,
+      email VARCHAR(100) NOT NULL UNIQUE,
+      password VARCHAR(255) NOT NULL
     );
   `;
 
-
-  // Tabla 'couples': Registra las relaciones entre usuarios formando una pareja.
-  private tableCouples: string = `
-    CREATE TABLE IF NOT EXISTS couples(
-      couple_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user1_id INTEGER,
-      user2_id INTEGER,
-      couple_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      anniversary_date DATE,
-      couple_nickname VARCHAR(50),
-      FOREIGN KEY (user1_id) REFERENCES users(user_id),
-      FOREIGN KEY (user2_id) REFERENCES users(user_id)
-    );
-  `;
-
-  // Tabla 'activities': Define las actividades disponibles para las parejas.
-  private tableActivities: string = `
-    CREATE TABLE IF NOT EXISTS activities(
-      activity_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name VARCHAR(100),
+  // Tabla 'tasks': Permite a los usuarios añadir y gestionar una lista de tareas personalizada.
+  private tableTasks: string = `
+    CREATE TABLE IF NOT EXISTS tasks(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER REFERENCES users(id),
+      title VARCHAR(100) NOT NULL,
       description TEXT,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-  `;
-
-  // Tabla 'couple_activities': Relaciona actividades con parejas específicas y su estado.
-  private tableCoupleActivities: string = `
-    CREATE TABLE IF NOT EXISTS couple_activities(
-      couple_activity_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      couple_id INTEGER,
-      activity_id INTEGER,
-      assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      status INTEGER DEFAULT 0,
       due_date DATE,
-      status VARCHAR(20),
-      FOREIGN KEY (couple_id) REFERENCES couples(couple_id),
-      FOREIGN KEY (activity_id) REFERENCES activities(activity_id)
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      category VARCHAR(50)
     );
   `;
 
-  // Tabla 'activity_logs': Registra todas las acciones realizadas por las parejas en relación con las actividades.
-  private tableActivityLogs: string = `
-    CREATE TABLE IF NOT EXISTS activity_logs(
-      log_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      couple_activity_id INTEGER,
-      user_id INTEGER,
-      action VARCHAR(50),
-      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (couple_activity_id) REFERENCES couple_activities(couple_activity_id),
-      FOREIGN KEY (user_id) REFERENCES users(user_id)
-    );
-  `;
-
-  // Tabla 'plans': Define los planes de suscripción disponibles en la aplicación (ejemplo: plan premium).
-  private tablePlans: string = `
-    CREATE TABLE IF NOT EXISTS plans(
-      plan_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name VARCHAR(50),
-      price DECIMAL(10, 2),
-      features TEXT,
-      access_level INTEGER,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-  `;
-
-  // Tabla 'subscriptions': Registra las suscripciones de los usuarios a los diferentes planes.
-  private tableSubscriptions: string = `
-    CREATE TABLE IF NOT EXISTS subscriptions(
-      subscription_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER,
-      plan_id INTEGER,
-      start_date DATE,
-      end_date DATE,
-      auto_renew BOOLEAN,
-      is_active BOOLEAN,
-      cancelled_at TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users(user_id),
-      FOREIGN KEY (plan_id) REFERENCES plans(plan_id)
-    );
-  `;
-
-  // Tabla 'wishlist': Permite a los usuarios añadir y gestionar una lista de deseos personalizada.
-  private tableWishlist: string = `
-    CREATE TABLE IF NOT EXISTS wishlist(
-      item_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER,
-      item_name VARCHAR(100),
-      added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users(user_id)
-    );
-  `;
-
-  // Tabla 'connection_requests': Gestiona las solicitudes de conexión entre usuarios.
-  private tableConnectionRequests: string = `
-    CREATE TABLE IF NOT EXISTS connection_requests(
-      request_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      sender_id INTEGER,
-      receiver_id INTEGER,
-      status VARCHAR(20) DEFAULT 'pending',
-      request_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (sender_id) REFERENCES users(user_id),
-      FOREIGN KEY (receiver_id) REFERENCES users(user_id)
-    );
-  `;
-
-  // Tabla 'notifications': Almacena notificaciones que se envían a los usuarios.
-  private tableNotifications: string = `
-    CREATE TABLE IF NOT EXISTS notifications(
-      notification_id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER,
-      message TEXT,
-      status VARCHAR(20) DEFAULT 'unread',
-      sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users(user_id)
+  // Tabla 'categories': Permite a los usuarios crear y gestionar categorías para sus tareas.
+  private tableCategories: string = `
+    CREATE TABLE IF NOT EXISTS categories(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name VARCHAR(50) NOT NULL,
+      user_id INTEGER REFERENCES users(id)
     );
   `;
 
@@ -155,7 +60,7 @@ export class servicebd {
   async initializeDatabase() {
     try {
       const db = await this.sqlite.create({
-        name: 'evergreen_db.db',
+        name: 'beloved.db',
         location: 'default'
       });
 
@@ -163,7 +68,7 @@ export class servicebd {
       await this.createTables();
       this.dbReady.next(true); // Indica que la base de datos está lista para usar.
     } catch (error) {
-      this.showAlert('Error', 'Error al abrir la base de datos: ' + error);
+      this.showAlert('Error', 'Error opening the database: ' + error);
     }
   }
 
@@ -171,69 +76,130 @@ export class servicebd {
   private async createTables() {
     try {
       await this.database.executeSql(this.tableUsers, []);
-      await this.database.executeSql(this.tableCouples, []);
-      await this.database.executeSql(this.tableActivities, []);
-      await this.database.executeSql(this.tableCoupleActivities, []);
-      await this.database.executeSql(this.tableActivityLogs, []);
-      await this.database.executeSql(this.tablePlans, []);
-      await this.database.executeSql(this.tableSubscriptions, []);
-      await this.database.executeSql(this.tableWishlist, []);
-      await this.database.executeSql(this.tableConnectionRequests, []);
-      await this.database.executeSql(this.tableNotifications, []);
+      await this.database.executeSql(this.tableTasks, []);
+      await this.database.executeSql(this.tableCategories, []);
     } catch (error) {
-      this.showAlert('Error', 'Error al crear tablas: ' + error);
+      this.showAlert('Error', 'Error creating tables: ' + error);
     }
   }
 
-  // Registra un log para una actividad realizada por una pareja.
-  logActivity(coupleActivityId: number, userId: number, action: string) {
-    return this.database.executeSql('INSERT INTO activity_logs (couple_activity_id, user_id, action) VALUES (?, ?, ?)', [coupleActivityId, userId, action])
-      .then(res => {
-        console.log("Activity logged successfully."); // Mensaje de éxito al registrar el log.
-      })
-      .catch(e => {
-        this.showAlert('Error', 'Failed to log activity: ' + JSON.stringify(e));
-      });
+  // CRUD functions for users table
+  addUser(username: string, email: string, password: string) {
+    return this.database.executeSql('INSERT INTO users(id, username, email, password) VALUES (NULL, ?, ?, ?)', [username, email, password]).then(res => {
+      this.showAlert('Insert', 'User Registered');
+    }).catch(e => {
+      this.showAlert('Insert', 'Error: ' + JSON.stringify(e));
+    });
   }
 
-  // Recupera todos los logs de una actividad específica de una pareja.
-  getActivityLogs(coupleActivityId: number) {
-    return this.database.executeSql('SELECT * FROM activity_logs WHERE couple_activity_id = ?', [coupleActivityId])
-      .then(res => {
-        let logs = [];
+  updateUser(userId: string, username: string, email: string, password: string) {
+    return this.database.executeSql('UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?', [username, email, password, userId]).then(res => {
+      this.showAlert('Update', 'User Updated');
+    }).catch(e => {
+      this.showAlert('Update', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  deleteUser(userId: string) {
+    return this.database.executeSql('DELETE FROM users WHERE id = ?', [userId]).then(res => {
+      this.showAlert('Delete', 'User Deleted');
+    }).catch(e => {
+      this.showAlert('Delete', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  getUsers(): Promise<any[]> {
+    return this.database.executeSql('SELECT * FROM users', []).then(res => {
+      let items: any[] = [];
+      if (res.rows.length > 0) {
         for (let i = 0; i < res.rows.length; i++) {
-          logs.push(res.rows.item(i)); // Agrega cada log a la lista.
+          items.push(res.rows.item(i));
         }
-        return logs; // Devuelve la lista completa de logs.
-      })
-      .catch(e => {
-        this.showAlert('Error', 'Failed to retrieve activity logs: ' + JSON.stringify(e));
-      });
+      }
+      return items;
+    }).catch(e => {
+      this.showAlert('Error', 'Error retrieving users: ' + JSON.stringify(e));
+      return [];
+    });
   }
 
-  // Recupera el historial completo de actividades para una pareja.
-  getFullActivityHistory(coupleId: number) {
-    return this.database.executeSql(`
-      SELECT activities.name AS activity_name, 
-             couple_activities.assigned_at AS start_date, 
-             couple_activities.due_date AS due_date,
-             activity_logs.action AS last_action, 
-             activity_logs.timestamp AS action_date 
-      FROM activity_logs 
-      INNER JOIN couple_activities ON activity_logs.couple_activity_id = couple_activities.couple_activity_id
-      INNER JOIN activities ON couple_activities.activity_id = activities.activity_id
-      WHERE couple_activities.couple_id = ?
-      ORDER BY activity_logs.timestamp DESC
-    `, [coupleId])
-    .then(res => {
-      let activityHistory = [];
-      for (let i = 0; i < res.rows.length; i++) {
-        activityHistory.push(res.rows.item(i)); // Guarda cada entrada del historial.
+  // CRUD functions for tasks table
+  addTask(userId: string, title: string, description: string, category: string) {
+    return this.database.executeSql('INSERT INTO tasks(id, user_id, title, description, category) VALUES (NULL, ?, ?, ?, ?)', [userId, title, description, category]).then(res => {
+      this.showAlert('Insert', 'Task added to the to-do list');
+    }).catch(e => {
+      this.showAlert('Insert', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  updateTask(taskId: string, title: string, description: string, status: number, dueDate: string, category: string) {
+    return this.database.executeSql('UPDATE tasks SET title = ?, description = ?, status = ?, due_date = ?, updated_at = CURRENT_TIMESTAMP, category = ? WHERE id = ?', [title, description, status, dueDate, category, taskId]).then(res => {
+      this.showAlert('Update', 'Task updated');
+    }).catch(e => {
+      this.showAlert('Update', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  deleteTask(taskId: string) {
+    return this.database.executeSql('DELETE FROM tasks WHERE id = ?', [taskId]).then(res => {
+      this.showAlert('Delete', 'Task removed from the to-do list');
+    }).catch(e => {
+      this.showAlert('Delete', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  getTasks(userId: string): Promise<any[]> {
+    return this.database.executeSql('SELECT * FROM tasks WHERE user_id = ?', [userId]).then(res => {
+      let items: any[] = [];
+      if (res.rows.length > 0) {
+        for (let i = 0; i < res.rows.length; i++) {
+          items.push(res.rows.item(i));
+        }
       }
-      return activityHistory; // Devuelve el historial completo.
-    })
-    .catch(e => {
-      this.showAlert('Error', 'Failed to retrieve activity history: ' + JSON.stringify(e));
+      return items;
+    }).catch(e => {
+      this.showAlert('Error', 'Error retrieving the to-do list: ' + JSON.stringify(e));
+      return [];
+    });
+  }
+
+  // CRUD functions for categories table
+  addCategory(name: string, userId: string) {
+    return this.database.executeSql('INSERT INTO categories(id, name, user_id) VALUES (NULL, ?, ?)', [name, userId]).then(res => {
+      this.showAlert('Insert', 'Category added');
+    }).catch(e => {
+      this.showAlert('Insert', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  updateCategory(categoryId: string, name: string) {
+    return this.database.executeSql('UPDATE categories SET name = ? WHERE id = ?', [name, categoryId]).then(res => {
+      this.showAlert('Update', 'Category updated');
+    }).catch(e => {
+      this.showAlert('Update', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  deleteCategory(categoryId: string) {
+    return this.database.executeSql('DELETE FROM categories WHERE id = ?', [categoryId]).then(res => {
+      this.showAlert('Delete', 'Category deleted');
+    }).catch(e => {
+      this.showAlert('Delete', 'Error: ' + JSON.stringify(e));
+    });
+  }
+
+  getCategories(userId: string): Promise<any[]> {
+    return this.database.executeSql('SELECT * FROM categories WHERE user_id = ?', [userId]).then(res => {
+      let items: any[] = [];
+      if (res.rows.length > 0) {
+        for (let i = 0; i < res.rows.length; i++) {
+          items.push(res.rows.item(i));
+        }
+      }
+      return items;
+    }).catch(e => {
+      this.showAlert('Error', 'Error retrieving categories: ' + JSON.stringify(e));
+      return [];
     });
   }
 
